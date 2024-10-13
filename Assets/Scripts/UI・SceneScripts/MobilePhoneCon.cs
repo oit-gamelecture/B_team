@@ -60,7 +60,7 @@ public class MobilePhoneCon : MonoBehaviour
         ScoreManager.Instance.ResetScore();
         scoreTime = Time.time;
         scoreText = scoreTextBox.GetComponent<Text>();
-        scoreText.text = "個人資産：＄" + ScoreManager.Instance.Score;
+        scoreText.text = "会社まで残り" + ScoreManager.Instance.Score+"m";
 
 
     }
@@ -69,7 +69,7 @@ public class MobilePhoneCon : MonoBehaviour
     void Update()
     {
         pastTime = Time.time - scoreTime;
-        scoreText.text = "個人資産$" + ScoreManager.Instance.Score;
+        scoreText.text = "会社まで残り" + ScoreManager.Instance.Score+"m";
         ScoreManager.Instance.AddScore(-1 * pastTime * pastTime * decreaseManager);
 
         if (ScoreManager.Instance.Score < 0)
