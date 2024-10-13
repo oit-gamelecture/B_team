@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
+using System.Linq;
+using TMPro;
 
 public class MobilePhoneCon : MonoBehaviour
 {
@@ -25,6 +28,7 @@ public class MobilePhoneCon : MonoBehaviour
     public GameObject subjectBox;
     private Text content;
     private Text subject;
+    
 
 
     private List<int> remainingValues;  // 未使用の値のリスト
@@ -38,7 +42,11 @@ public class MobilePhoneCon : MonoBehaviour
     public GameObject scoreTextBox;
     private Text scoreText;
     private float decreaseManager = 0.1f;
-
+    public int butyo = 0;
+    public int yarudaro = 0;
+    public Button[] answerButton;
+    public TextMeshProUGUI[] Tn;
+    public int answer;
     void Start()
     {
         //fpsを60に固定
@@ -62,14 +70,13 @@ public class MobilePhoneCon : MonoBehaviour
         scoreText = scoreTextBox.GetComponent<Text>();
         scoreText.text = "会社まで残り" + ScoreManager.Instance.Score+"m";
 
-
     }
 
     // Update is called once per frame
     void Update()
     {
         pastTime = Time.time - scoreTime;
-        scoreText.text = "会社まで残り" + ScoreManager.Instance.Score+"m";
+        scoreText.text = "会社まで残り" + ScoreManager.Instance.Score + "m";
         ScoreManager.Instance.AddScore(-1 * pastTime * pastTime * decreaseManager);
 
         if (ScoreManager.Instance.Score < 0)
@@ -110,64 +117,155 @@ public class MobilePhoneCon : MonoBehaviour
         }
         int rad = remainingValues[0];
         remainingValues.RemoveAt(0);
-
-        switch (rad)
+        switch (1)
         {
             case 1:
                 subject.text = "MVDA株の再検討について";
                 content.text = "MVDAの株価が設定した損切りラインを下回りました。ポートフォリオの再検討をお勧めします。";
+                string[] N = { "a", "i", "u", "e" };//ここでcase1に入れる前に答えはどれかを選んでおく
+                case1(N,1);
                 break;
             case 2:
                 subject.text = "Amazone株価急落について";
                 content.text = "Amazoneの株価が急落しました。速やかな対応が必要です。";
+                case2();
                 break;
             case 3:
                 subject.text = "Googol株式の緊急売却推奨";
                 content.text = "Googolの株が目標価格に達しませんでした。売却を検討してください。";
+                case3();
                 break;
             case 4:
                 subject.text = "Microhard株価の急変動について";
                 content.text = "Microhardの株が急落し、損失が発生しています。ポートフォリオの調整を推奨します。";
+                case4();
                 break;
             case 5:
                 subject.text = "Tessle株式の損切りライン到達";
                 content.text = "Tessleの株価が大幅に下落しました。至急対策を講じる必要があります。";
+                case5();
                 break;
             case 6:
                 subject.text = "Faceblock株の大幅下落について";
                 content.text = "Faceblockの株が急落しました。損失を最小限に抑えるための行動が求められます。";
+                case6();
                 break;
             case 7:
                 subject.text = "April株の異常な下落について";
                 content.text = "Aprilの株価が設定した基準を下回りました。売却を検討してください。";
+                case7();
                 break;
             case 8:
                 subject.text = "Netfreedom株価の急落の件";
                 content.text = "Netfreedomの株が目標価格に届かず、損失が拡大しています。対策が必要です。";
+                case8();
                 break;
             case 9:
                 subject.text = "Distiny株式の価格変動について";
                 content.text = "Distinyの株価が設定ラインを下回りました。早急な対応をお勧めします。";
+                case9();
                 break;
             case 10:
                 subject.text = "Starbox株の急激な価格変動";
                 content.text = "Starboxの株が急落しています。適切な対応が必要です。";
+                case10();
                 break;
             case 11:
                 subject.text = "WcDonalds株価下落のお知らせ";
                 content.text = "WcDonaldsの株価が急落しました。速やかな行動を推奨します。";
+                case11();
                 break;
             case 12:
                 subject.text = "CocaCall株の再検討を推奨";
                 content.text = "CocaCallの株が目標価格に達していません。ポートフォリオの調整を検討してください。";
+                case12();
                 break;
             default:
                 Debug.Log("rad関数で想定していない値が選ばれている。何かがおかしい。");
                 break;
+
         }
+    }
+    /*public void CheckAnswer(int selectedIndex)
+    {
+        if(selectedIndex==answer)
+        {
+            Debug.Log("あたり");
+        }
+        else
+        {
+            Debug.Log("はずれ");
+        }
+    }*/
+    void case1(string[]T,int ancers)
+    {
+        //配列を入れ替えることによりランダムにしている
+        for (int i =0;i< 4;i++)
+        {
+            string temp = T[i];
+            int randomIndex = Random.Range(0, 4);
+            T[i] = T[randomIndex];
+
+            T[randomIndex] = temp;
+            if(i==ancers)
+            {
+                answer=randomIndex;
+            }
+        }
+        /*for (int i = 0;i<4;i++)
+        {
+            Tn[i].text = T[i];
+            int buttonIndex = i;
+            answerButton[i].onClick.RemoveAllListeners();
+            answerButton[i].onClick.AddListener(() => CheckAnswer(buttonIndex));
+            
+        }*/
+        
+    }
+    void case2()
+    {
+        
+    }
+    void case3()
+    {
+        
+    }
+    void case4()
+    {
+        
+    }
+    void case5()
+    {
+        
+    }
+    void case6()
+    {
+        
+    }
+    void case7()
+    {
+        
+    }
+    void case8()
+    {
+        
+    }
+    void case9()
+    {
+        
+    }
+    void case10()
+    {
+        
+    }
+    void case11()
+    {
+        
+    }
+    void case12()
+    {
 
     }
-
     public IEnumerator MoveImage()
     {
         isMoving = true;

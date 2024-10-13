@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(float amount)
     {
         Score += amount;
-        Debug.Log("スコアが増えました: " + Score);
+        Debug.Log("会社まで残り" + Score+"m");
     }
 
     public void ResetScore()
