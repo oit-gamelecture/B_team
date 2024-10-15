@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using JetBrains.Annotations;
 using System.Linq;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MobilePhoneCon : MonoBehaviour
 {
@@ -42,11 +43,10 @@ public class MobilePhoneCon : MonoBehaviour
     public GameObject scoreTextBox;
     private Text scoreText;
     private float decreaseManager = 0.1f;
-    public int butyo = 0;
-    public int yarudaro = 0;
-    public Button[] answerButton;
+    public GameObject answerButton;
     public TextMeshProUGUI[] Tn;
-    public int answer;
+    public EventSystem answerEvent;
+    public string answer;
     void Start()
     {
         //fpsを60に固定
@@ -186,41 +186,34 @@ public class MobilePhoneCon : MonoBehaviour
 
         }
     }
-    /*public void CheckAnswer(int selectedIndex)
+    public void CheckAnswer()
     {
-        if(selectedIndex==answer)
+        answerButton = answerEvent.currentSelectedGameObject;
+        TextMeshProUGUI BUtton = answerButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (answer == BUtton.text)
         {
             Debug.Log("あたり");
         }
-        else
-        {
-            Debug.Log("はずれ");
-        }
-    }*/
-    void case1(string[]T,int ancers)
+    }
+    void case1(string[]T,int answers)
     {
+        answer = T[answers];
         //配列を入れ替えることによりランダムにしている
-        for (int i =0;i< 4;i++)
+        for (int i = 0; i < 4; i++)
         {
             string temp = T[i];
+
             int randomIndex = Random.Range(0, 4);
             T[i] = T[randomIndex];
 
             T[randomIndex] = temp;
-            if(i==ancers)
-            {
-                answer=randomIndex;
-            }
+
         }
-        /*for (int i = 0;i<4;i++)
+        for (int i = 0; i < 4; i++)
         {
             Tn[i].text = T[i];
-            int buttonIndex = i;
-            answerButton[i].onClick.RemoveAllListeners();
-            answerButton[i].onClick.AddListener(() => CheckAnswer(buttonIndex));
-            
-        }*/
-        
+
+        }
     }
     void case2()
     {

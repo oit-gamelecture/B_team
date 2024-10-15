@@ -3084,15 +3084,14 @@ MonoBehaviour:
   subjectBox: {fileID: 2101042655}
   pastTime: 0
   scoreTextBox: {fileID: 948746130}
-  butyo: 0
-  yarudaro: 0
-  answerButton: []
+  answerButton: {fileID: 0}
   Tn:
   - {fileID: 1510720647}
   - {fileID: 1218744773}
   - {fileID: 1383415672}
   - {fileID: 686093505}
-  answer: 0
+  answerEvent: {fileID: 1335782494}
+  answer: 
 --- !u!1 &2132849153
 GameObject:
   m_ObjectHideFlags: 0
