@@ -5,12 +5,17 @@ using UnityEngine;
 public class Operation : MonoBehaviour
 {
     public GameObject sumaho;
+    public GameObject mail;
+    public GameObject Canvas;
+    public GameObject map;
     public int a = 0;
-    private bool see=false;
-    // Start is called before the first frame update
+    public bool see=false;
     void Start()
     {
         sumaho.SetActive(false);
+        mail.SetActive(false);
+        Canvas.SetActive(false);
+        map.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,7 +25,25 @@ public class Operation : MonoBehaviour
         {
             see = !see;
             sumaho.SetActive(see);
+            Canvas.SetActive(true);
+            mail.SetActive(false) ;
+            map.SetActive(false);
         }
+
     }
-    
+    public void mailButton()
+    {
+         mail.SetActive(true); 
+        Canvas.SetActive(false);
+    }
+    public void buck()
+    {
+        Canvas.SetActive(true) ;
+        mail.SetActive(false) ;
+    }
+    public void mapButton()
+    {
+        map.SetActive(true);
+        Canvas.SetActive(false) ;
+    }
 }
