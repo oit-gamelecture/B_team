@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2912,6 +2912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1069898417}
   - component: {fileID: 1069898416}
+  - component: {fileID: 1069898418}
   m_Layer: 0
   m_Name: God
   m_TagString: Untagged
@@ -2950,6 +2951,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1069898418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069898415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fe790654eee204889430d724ea9812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallSetting:
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: {x: 0, y: 0, z: 0}
+  GroundSetting:
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: {x: 0, y: 0, z: 0}
+  RoadSetting:
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: {x: 0, y: 0, z: 0}
+  defaultPosition: {x: 5, y: 0, z: 10}
+  mapSizeW: 100
+  mapSizeH: 100
+  roomNum: 20
 --- !u!1 &1088741633
 GameObject:
   m_ObjectHideFlags: 0
