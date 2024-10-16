@@ -15,10 +15,10 @@ public class camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Operation.see ==false)
+        /*if(Operation.see ==false)
         {
             float mx = Input.GetAxis("Mouse X");
             transform.RotateAround(transform.position, Vector3.up, mx);
-        }
+        }*/
     }
 }
