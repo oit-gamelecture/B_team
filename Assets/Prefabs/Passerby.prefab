@@ -2111,7 +2111,6 @@ GameObject:
   - component: {fileID: 8668074783411674830}
   - component: {fileID: 1678844339486402625}
   - component: {fileID: 8256288598017021436}
-  - component: {fileID: 853829367605315923}
   - component: {fileID: 2650645157394120333}
   m_Layer: 0
   m_Name: Passerby
@@ -2179,29 +2178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bc491389b313b4fa199079ba45845b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &853829367605315923
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6217859664019750943}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2556361
-  m_Height: 1.8241293
-  m_Direction: 1
-  m_Center: {x: 0.014374375, y: 0.9007925, z: 0}
 --- !u!95 &2650645157394120333
 Animator:
   serializedVersion: 5
