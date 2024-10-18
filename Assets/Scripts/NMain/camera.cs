@@ -21,4 +21,5 @@ public class camera : MonoBehaviour
             transform.RotateAround(transform.position, Vector3.up, mx);
         }*/
     }
+
 }

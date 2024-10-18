@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class move : MonoBehaviour
 {
     public float PlayerSpeed;
     public Animator animator;
+    public bool leftTurn;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,15 @@ public class move : MonoBehaviour
     void Update()
     {
         Move();
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "leftwall")
+        {
+            Transform myTransform = this.transform;
+            Vector3 worldAngle = myTransform.eulerAngles;
+            worldAngle.y = 90f;
+        }
     }
     void Move()
     {
