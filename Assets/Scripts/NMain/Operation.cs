@@ -10,12 +10,15 @@ public class Operation : MonoBehaviour
     public GameObject map;
     public int a = 0;
     public bool see=false;
+    public GameObject mailmail;
+    private Quiz messe;
     void Start()
     {
         sumaho.SetActive(false);
         mail.SetActive(false);
         Canvas.SetActive(false);
         map.SetActive(false);
+        messe= mailmail.GetComponent<Quiz>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,12 @@ public class Operation : MonoBehaviour
     {
          mail.SetActive(true); 
         Canvas.SetActive(false);
+        if(messe.queue.Count>0)
+        {
+            messe.Mailmessage();
+            messe.Button.SetActive(true);
+        }
+
     }
     public void buck()
     {
@@ -45,5 +54,15 @@ public class Operation : MonoBehaviour
     {
         map.SetActive(true);
         Canvas.SetActive(false) ;
+    }
+    public void Nextmail()
+    {
+        if (messe.queue.Count > 0)
+        {
+            messe.Mailmessage();
+            messe.Button.SetActive(true);
+            messe.NextButton.SetActive(false);
+        }
+
     }
 }
