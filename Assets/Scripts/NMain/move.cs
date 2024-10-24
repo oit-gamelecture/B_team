@@ -42,7 +42,6 @@ public class move : MonoBehaviour
             worldAngle.y = -90f;
             myTransform.eulerAngles = worldAngle;
             //animator.SetBool("leftTurn",true);
-
         }
     }
     void Move()
