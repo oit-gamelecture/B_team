@@ -38,10 +38,12 @@ public class move : MonoBehaviour
         if (other.gameObject.tag == "leftwall")
         {
             Transform myTransform = this.transform;
-            Vector3 worldAngle = myTransform.eulerAngles;
-            worldAngle.y = -90f;
-            myTransform.eulerAngles = worldAngle;
-            //animator.SetBool("leftTurn",true);
+            myTransform.Rotate(0, -90f, 0);
+        }
+        if (other.gameObject.tag == "rightwall")
+        {
+            Transform myTransform = this.transform;
+            myTransform.Rotate(0, 90f, 0);
         }
     }
     void Move()
