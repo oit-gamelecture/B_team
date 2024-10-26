@@ -3,14 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - leftwall
-  - rightwall
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - MiniMap
+  - 
   - Water
   - UI
   - 
