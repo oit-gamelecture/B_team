@@ -6,19 +6,26 @@ public class NPC : MonoBehaviour
 {
     public GameObject prefab;
     GameObject[] NPCs;
-    public int NPCCount = 10;
+    public int NPCCount = 11;
     void Start()
     {
         NPCs = new GameObject[NPCCount];
         for (int i = 0; i <NPCCount; i++)
         {
             NPCs[i] = Instantiate(prefab, new Vector3(0, 0.5f, 0), Quaternion.identity);
-            NPCs[i].transform.position = new Vector3(1, 1, 1);
             NPCs[i].tag = "NPCs";
-
         }
-
-
+        NPCs[0].transform.position = new Vector3(172, 1, 130);
+        NPCs[1].transform.position = new Vector3(173, 1, 258);
+        NPCs[2].transform.position = new Vector3(350, 1, 200);
+        NPCs[3].transform.position = new Vector3(-11, 1, 383);
+        NPCs[4].transform.position = new Vector3(456, 1, 450);
+        NPCs[5].transform.position = new Vector3(600, 1, 257);
+        NPCs[6].transform.position = new Vector3(524, 1, 851);
+        NPCs[7].transform.position = new Vector3(-9, 1, 716);
+        NPCs[8].transform.position = new Vector3(730, 1, 570);
+        NPCs[9].transform.position = new Vector3(152, 1, 850);
+        NPCs[10].transform.position = new Vector3(740, 1, 1060);
 
     }
 
