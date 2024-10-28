@@ -7,6 +7,11 @@ TagManager:
   - leftwall
   - rightwall
   - NPCs
+  - NPCLeft
+  - NPCRight
+  - enemy
+  - NPCTurn
+  - buckwall
   layers:
   - Default
   - TransparentFX

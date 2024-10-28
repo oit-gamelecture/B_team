@@ -8,6 +8,7 @@ public class Operation : MonoBehaviour
     public GameObject mail;
     public GameObject Canvas;
     public GameObject map;
+    public GameObject mapGround;
     public int a = 0;
     public bool see=false;
     public GameObject mailmail;
@@ -18,6 +19,7 @@ public class Operation : MonoBehaviour
         mail.SetActive(false);
         Canvas.SetActive(false);
         map.SetActive(false);
+        mapGround.SetActive(false);
         messe= mailmail.GetComponent<Quiz>();
     }
 
@@ -31,6 +33,7 @@ public class Operation : MonoBehaviour
             Canvas.SetActive(true);
             mail.SetActive(false) ;
             map.SetActive(false);
+            mapGround.SetActive(false);
         }
 
     }
@@ -53,6 +56,7 @@ public class Operation : MonoBehaviour
     public void mapButton()
     {
         map.SetActive(true);
+        mapGround.SetActive(true);
         Canvas.SetActive(false) ;
     }
     public void Nextmail()

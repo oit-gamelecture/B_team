@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 2598761497373369614}
   - component: {fileID: -5340085085698018628}
   m_Layer: 0
-  m_Name: DummyType01 HDRP
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1557,9 +1557,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5948011256927721611
 GameObject:
   m_ObjectHideFlags: 0
