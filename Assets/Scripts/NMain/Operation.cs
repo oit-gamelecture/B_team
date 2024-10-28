@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Operation : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class Operation : MonoBehaviour
     {
         map.SetActive(true);
         mapGround.SetActive(true);
-        Canvas.SetActive(false) ;
+        Canvas.SetActive(false);
     }
     public void Nextmail()
     {
@@ -68,5 +69,12 @@ public class Operation : MonoBehaviour
             messe.NextButton.SetActive(false);
         }
 
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag=="clearwall")
+        {
+            SceneManager.LoadScene("ClearScene2");
+        }
     }
 }

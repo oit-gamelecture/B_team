@@ -12,6 +12,9 @@ TagManager:
   - enemy
   - NPCTurn
   - buckwall
+  - StopPos
+  - trip
+  - clearwall
   layers:
   - Default
   - TransparentFX

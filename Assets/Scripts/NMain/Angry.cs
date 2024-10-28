@@ -20,9 +20,10 @@ public class Angry : MonoBehaviour
         if(angry>=1)
         {
             angry = 1;
-            //SceneManager.LoadScene(angry);
+            SceneManager.LoadScene("ClearScene2");
         }
         float percent = (float)angry / MaxAngry;
         angryGage.fillAmount = percent;
     }
+    
 }
