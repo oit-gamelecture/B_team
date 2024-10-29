@@ -15,6 +15,7 @@ TagManager:
   - StopPos
   - trip
   - clearwall
+  - NPCLeftTurn
   layers:
   - Default
   - TransparentFX

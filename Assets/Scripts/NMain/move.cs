@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class move : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class move : MonoBehaviour
     public bool buck;
     public bool Nbuck;
     public int LAndRmove = 0;
+    public int HP = 10;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -30,6 +32,7 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         var speed = Vector3.zero;
         if (isCooldown)
         {
@@ -105,12 +108,12 @@ public class move : MonoBehaviour
         if (other.gameObject.tag == "rightwall")
         {
             rightTurn = true;
-
         }
         if (other.gameObject.tag == "buckwall")
         {
             animator.SetBool("buck", true);
             buck = true;
+            HP -= 2;
             runSpeed = 0;
             buckSpeed = -0.35f;
             StartCoroutine(buckNow());
@@ -118,6 +121,7 @@ public class move : MonoBehaviour
         if (other.gameObject.tag == "NPCs")
         {
             animator.SetBool("dame", true);
+            HP -= 1;
             runSpeed = 0;
             NbuckSpeed = -0.02f;
             Nbuck = true;
@@ -129,7 +133,11 @@ public class move : MonoBehaviour
         
         yield return new WaitForSeconds(2);
         animator.SetBool("buck", false);
-        buck = false;
+        buck = false; 
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
         yield return new WaitForSeconds(0.5f);
         runSpeed = 0.3f;
     }
@@ -138,6 +146,10 @@ public class move : MonoBehaviour
         yield return new WaitForSeconds(2);
         animator.SetBool("dame", false);
         Nbuck = false;
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
         yield return new WaitForSeconds(0.5f);
         runSpeed = 0.3f;
         yield return new WaitForSeconds(3);

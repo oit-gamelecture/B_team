@@ -10,6 +10,7 @@ public class NPCMove : MonoBehaviour
     public bool NPCLeft;
     public bool NPCRight;
     public bool NPCTurn;
+    public bool NPCLeftTurn;
     public float a;
     public float b;
     public Animator animator;
@@ -52,8 +53,8 @@ public class NPCMove : MonoBehaviour
                 {
                     NPCRight = false;
                     b = 0f;
-                }
             }
+        }
         if (NPCTurn)
         {
             a = 90f * Time.deltaTime;
@@ -66,6 +67,21 @@ public class NPCMove : MonoBehaviour
             if (b >= 180f)
             {
                 NPCTurn = false;
+                b = 0f;
+            }
+        }
+        if (NPCLeftTurn)
+        {
+            a = -90f * Time.deltaTime;
+            if (b + a <- 180f)
+            {
+                a = -180 - b;
+            }
+            b += a;
+            myTransform.Rotate(0, a, 0);
+            if (b <= -180f)
+            {
+                NPCLeftTurn = false;
                 b = 0f;
             }
         }
@@ -84,6 +100,11 @@ public class NPCMove : MonoBehaviour
         {
             NPCTurn = true;
         }
+        if (other.gameObject.tag == "NPCLeftTurn")
+        {
+            NPCLeftTurn = true;
+        }
+
         if (other.gameObject.tag == "Player")
         {
             animator.SetBool("walk", false);

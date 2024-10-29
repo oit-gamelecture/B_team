@@ -10,6 +10,7 @@ public class Operation : MonoBehaviour
     public GameObject Canvas;
     public GameObject map;
     public GameObject mapGround;
+    public GameObject Canvasbuck;
     public int a = 0;
     public bool see=false;
     public GameObject mailmail;
@@ -19,9 +20,11 @@ public class Operation : MonoBehaviour
         sumaho.SetActive(false);
         mail.SetActive(false);
         Canvas.SetActive(false);
+        Canvasbuck.SetActive(false);
         map.SetActive(false);
         mapGround.SetActive(false);
-        messe= mailmail.GetComponent<Quiz>();
+        messe = mailmail.GetComponent<Quiz>();
+        
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class Operation : MonoBehaviour
             see = !see;
             sumaho.SetActive(see);
             Canvas.SetActive(true);
+            Canvasbuck.SetActive(true);
             mail.SetActive(false) ;
             map.SetActive(false);
             mapGround.SetActive(false);
@@ -42,6 +46,7 @@ public class Operation : MonoBehaviour
     {
          mail.SetActive(true); 
         Canvas.SetActive(false);
+        Canvasbuck.SetActive(false);
         if(messe.queue.Count>0)
         {
             messe.Mailmessage();
@@ -51,7 +56,8 @@ public class Operation : MonoBehaviour
     }
     public void buck()
     {
-        Canvas.SetActive(true) ;
+        Canvas.SetActive(true);
+        Canvasbuck.SetActive(true);
         mail.SetActive(false) ;
     }
     public void mapButton()
@@ -59,6 +65,7 @@ public class Operation : MonoBehaviour
         map.SetActive(true);
         mapGround.SetActive(true);
         Canvas.SetActive(false);
+        Canvasbuck.SetActive(false);
     }
     public void Nextmail()
     {
