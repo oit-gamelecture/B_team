@@ -31,7 +31,7 @@ public class PrologueCon : MonoBehaviour
     {
         audioSource.PlayOneShot(buttonAudioClip);
         yield return new WaitForSeconds(1.5f);  // 効果音が鳴り終わるまで待機
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("Nmain");
         ScoreManager.Instance.ResetScore();
     }
 }
