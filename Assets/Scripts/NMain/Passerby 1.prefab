@@ -1997,7 +1997,7 @@ GameObject:
   - component: {fileID: 5409919017269267342}
   - component: {fileID: 6664524476514430665}
   - component: {fileID: 5668449156934735072}
-  - component: {fileID: 6938026792026932567}
+  - component: {fileID: -5234899812226728528}
   m_Layer: 0
   m_Name: Passerby 1
   m_TagString: NPCs
@@ -2096,7 +2096,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6938026792026932567
+--- !u!114 &-5234899812226728528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   a: 0
   b: 0
   animator: {fileID: 0}
-  NPCspeed: 0.05
+  NPCspeed: 0
 --- !u!1 &5728129825775727534
 GameObject:
   m_ObjectHideFlags: 0
