@@ -96,7 +96,7 @@ public class Quiz : MonoBehaviour
                 answerText.text = "";
                 subject.text = "上司";
                 content.text = "おい!もう出社時間は過ぎてるぞ!";
-                string[] answer = { "申し訳ありません", "寝てました", "中し訳ありません", "ｽﾔｧ" };
+                string[] answer = { "申し訳ありません", "寝てました", "中し訳ありません", "スヤァ" };
                 mail0(answer, 0);
                 break;
             case 1:
