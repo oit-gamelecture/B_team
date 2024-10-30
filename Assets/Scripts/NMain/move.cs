@@ -103,13 +103,19 @@ public class move : MonoBehaviour
         }
         if (other.gameObject.tag == "leftwall")
         {
-            leftTurn = true;
+            if (rightTurn == false)
+            {
+                leftTurn = true;
+            }
         }
         if (other.gameObject.tag == "rightwall")
         {
-            rightTurn = true;
-        }
-        if (other.gameObject.tag == "buckwall")
+            if (leftTurn == false)
+            {
+                rightTurn = true;
+            }
+            }
+            if (other.gameObject.tag == "buckwall")
         {
             animator.SetBool("buck", true);
             buck = true;
