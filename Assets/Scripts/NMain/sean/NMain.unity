@@ -15867,6 +15867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: genSuit
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -24984,6 +24988,7 @@ MonoBehaviour:
   Nbuck: 0
   LAndRmove: 0
   HP: 10
+  rotationSpeed: 180
 --- !u!114 &1088741640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32436,6 +32441,7 @@ MonoBehaviour:
   Nbuck: 0
   LAndRmove: 0
   HP: 10
+  rotationSpeed: 180
 --- !u!4 &1722479987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5181673334304101342, guid: 3a96360183aca44448800a4ee34e6807, type: 3}
@@ -36652,7 +36658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774597522035216572, guid: 3a96360183aca44448800a4ee34e6807, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5181673334304101342, guid: 3a96360183aca44448800a4ee34e6807, type: 3}
       propertyPath: m_LocalScale.x
@@ -36716,12 +36722,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5986998335596953435, guid: 3a96360183aca44448800a4ee34e6807, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6528275024325078563, guid: 3a96360183aca44448800a4ee34e6807, type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 9000000, guid: 7aea2d469d67de44f9dd680a5088c739, type: 3}
+      objectReference: {fileID: 9000000, guid: 63fdb230e35611141b18195fb2be42ae, type: 3}
     - target: {fileID: 6528275024325078563, guid: 3a96360183aca44448800a4ee34e6807, type: 3}
       propertyPath: m_Controller
       value: 
