@@ -26,6 +26,8 @@ public class Quiz : MonoBehaviour
     public TextMeshProUGUI kennsuu;
     public GameObject NextButton;
     public int b;
+    public AudioClip sound1;
+    AudioSource audioSource;
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -36,12 +38,23 @@ public class Quiz : MonoBehaviour
         Angry = angryscp.GetComponent<Angry>();
         Button.SetActive(false);
         NextButton.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        kennsuu.text=queue.Count.ToString();
+        kennsuu.text = queue.Count.ToString();
+        if (queue.Count > 5)
+        {
+            Angry.angry += 0.0005f;
+        }
+        
+
     }
     private IEnumerator RandomCallMail()
     {
@@ -50,6 +63,16 @@ public class Quiz : MonoBehaviour
         yield return new WaitForSeconds(randomInterval);
         queue.Enqueue(a);
         Debug.Log(a);
+        //audioSource.PlayOneShot(sound1);
+        if (audioSource != null && sound1 != null)
+        {
+            audioSource.PlayOneShot(sound1);
+        }
+        else
+        {
+            Debug.LogError("audioSourceまたはsound1がnullです");
+        }
+
         StartCoroutine(RandomCallMail());
 
         answerText.text = "";
@@ -66,19 +89,50 @@ public class Quiz : MonoBehaviour
 
     public void Mailmessage()
     {
-        switch (queue.Peek())
+        int messageID = Random.Range(0, 6);
+        switch (messageID)
         {
             case 0:
-                subject.text = "1";
-                content.text = "1";
-                string[] answer = { "1", "2", "3", "4" };
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "おい!もう出社時間は過ぎてるぞ!";
+                string[] answer = { "申し訳ありません", "寝てました", "中し訳ありません", "スヤァ" };
                 mail0(answer, 0);
                 break;
-                case 1:
-                subject.text = "2";
-                content.text = "6";
-                string[] answer2 = { "5", "6", "7", "8" };
-                mail0(answer2, 1);
+            case 1:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "会社には来れるのか？";
+                string[] answer2 = { "急いでいきます", "まあ心配すんな", "犬丈夫です", "心配でしたか？" };
+                mail0(answer2, 0);
+                break;
+            case 2:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "いつ着く？";
+                string[] answer3 = { "なるべく早く行きます", "まだかかりそう", "間に合う間に合う!", "24時間ぐらいかな" };
+                mail0(answer3, 0);
+                break;
+            case 3:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "会議だぞ!急げ!";
+                string[] answer4 = { "絶対間に合わせます", "間に合わないかも", "行ける行ける", "急ぎンチャク" };
+                mail0(answer4, 0);
+                break;
+            case 4:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "何故遅刻しているんだ？";
+                string[] answer5 = { "寝坊していました", "寝てた", "寝すぎた", "気にしたら負けですよ" };
+                mail0(answer5, 0);
+                break;
+            case 5:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "今何時だと思っている？";
+                string[] answer6 = { "すぐに向かいます", "やべっ", "あー...", "ミスったー" };
+                mail0(answer6, 0);
                 break;
 
         }

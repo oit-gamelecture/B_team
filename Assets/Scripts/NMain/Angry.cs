@@ -17,9 +17,9 @@ public class Angry : MonoBehaviour
 
     void Update()
     {
-        if(angry>=1)
+        if(angry>=0.5)
         {
-            angry = 1;
+            angry = 0.5;
             SceneManager.LoadScene("ClearScene2");
         }
         float percent = (float)angry / MaxAngry;
