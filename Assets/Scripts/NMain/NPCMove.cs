@@ -14,15 +14,20 @@ public class NPCMove : MonoBehaviour
     public float a;
     public float b;
     public Animator animator;
+    public float NPCspeed;
     void Start()
     {
         animator = GetComponent<Animator>();
         animator.SetBool("walk", true);
+        NPCspeed = 0.1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        var speed = Vector3.zero;
+        speed.z = NPCspeed;
+        transform.Translate(speed);
         Transform myTransform = this.transform;
         if (NPCLeft)
         {
@@ -108,6 +113,7 @@ public class NPCMove : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             animator.SetBool("walk", false);
+            NPCspeed = 0;
             StartCoroutine(tomaru());
         }
     }
@@ -115,6 +121,7 @@ public class NPCMove : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         animator.SetBool("walk", true);
+        NPCspeed = 0.1f;
     }
 
 }
