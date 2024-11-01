@@ -23,11 +23,19 @@ public class move : MonoBehaviour
     public bool Nbuck;
     public int LAndRmove = 0;
     public int HP = 10;
-    public float rotationSpeed = 180f;
+    public Vector3 hukitobe;
+    public int fastright;
+    public int fastleft;
+    public GameObject so;
+    private a GetA;
     void Start()
     {
         animator = GetComponent<Animator>();
         myTransform = this.transform;
+        fastright = 0;
+        fastleft = 0;
+        GetA= so.GetComponent<a>();
+        
     }
 
     // Update is called once per frame
@@ -38,66 +46,52 @@ public class move : MonoBehaviour
         if (isCooldown)
         {
             cooldownTimer += Time.deltaTime;
-            if(cooldownTimer >= delayTime )
+            if (cooldownTimer >= delayTime)
             {
                 isCooldown = false;
                 cooldownTimer = 0f;
             }
         }
-        if (buck==false&&Nbuck==false)
+        if (!buck && !Nbuck)
         {
             animator.SetBool("run", true);
             speed.z = runSpeed;
-            transform.Translate(speed);
+            // transform.Translate(speed * Time.deltaTime);
+
         }
-        else if (buck == true)
+        else if (buck)
+        {
+
+            animator.SetBool("run", false);
+            runSpeed = 0f;
+            speed.z = buckSpeed;
+            Debug.Log(hukitobe * buckSpeed);
+            transform.position += hukitobe * buckSpeed * Time.deltaTime;
+            Vector3 rotation = transform.localEulerAngles;
+            rotation.y = (int)(rotation.y / 89) * 90;
+            transform.localEulerAngles = rotation;
+            transform.Translate(speed * Time.deltaTime);
+        }
+        else if (Nbuck)
         {
             animator.SetBool("run", false);
-            speed.z = buckSpeed;
-            transform.Translate(speed);
-        }else if (Nbuck == true) {
-            animator.SetBool("run", false);
+            runSpeed = 0f;
             speed.z = NbuckSpeed;
-            transform.Translate(speed);
+            Debug.Log(hukitobe * NbuckSpeed);
+            transform.position += hukitobe * NbuckSpeed * Time.deltaTime;
+            Vector3 rotation = transform.localEulerAngles;
+            rotation.y = (int)(rotation.y / 89) * 90;
+            transform.localEulerAngles = rotation;
+            transform.Translate(speed * Time.deltaTime);
         }
         Move();
-
-        // ç∂Ç…âÒì]Ç∑ÇÈèàóù
         if (leftTurn)
         {
-            StartCoroutine(RotateOverTime(-90f)); // -90ìxâÒì]
-            leftTurn = false; // ÉRÉãÅ[É`ÉìÇ™èàóùÇà¯Ç´åpÇÆÇÃÇ≈falseÇ…Ç∑ÇÈ
-        }
-
-        // âEÇ…âÒì]Ç∑ÇÈèàóù
-        if (rightTurn)
-        {
-            StartCoroutine(RotateOverTime(90f)); // 90ìxâÒì]
-            rightTurn = false; // ÉRÉãÅ[É`ÉìÇ™èàóùÇà¯Ç´åpÇÆÇÃÇ≈falseÇ…Ç∑ÇÈ
-        }
-    }
-
-    private IEnumerator RotateOverTime(float targetAngle)
-    {
-        float angle = 0f;
-        while (Mathf.Abs(angle) < Mathf.Abs(targetAngle))
-        {
-            float step = rotationSpeed * Mathf.Sign(targetAngle) * 0.07f; // 0.02ïbñàÇ…è≠ÇµÇ∏Ç¬âÒì]
-            if (Mathf.Abs(angle + step) > Mathf.Abs(targetAngle))
-            {
-                step = targetAngle - angle; // ñ⁄ïWäpìxÇí¥Ç¶Ç»Ç¢ÇÊÇ§Ç…í≤êÆ
-            }
-
-            myTransform.Rotate(0, step, 0);
-            angle += step;
-
-            yield return new WaitForSeconds(0.02f); // 0.02ïbë“ã@ÅiÉtÉåÅ[ÉÄÇ…àÀë∂ÇµÇ»Ç¢ë“ã@Åj
-        }
-
-        StartCooldown();
-        /*Move();
-        if (leftTurn)
-        {
+            /* leftTurn = false;
+             Vector3 rotation = transform.localEulerAngles;
+             rotation.y = (int)(rotation.y -90);
+             transform.localEulerAngles = rotation;*/
+            //LAndRmove += 1;
             a = -180f * Time.deltaTime;
             if (b + a < -90f)
             {
@@ -110,12 +104,26 @@ public class move : MonoBehaviour
             {
                 leftTurn = false;
                 b = 0f;
+                Vector3 rotation = transform.localEulerAngles;
+                rotation.y = (int)(rotation.y / 89) * 90;
+                transform.localEulerAngles = rotation;
                 StartCooldown();
+            }
+            if (fastleft == 0)
+            {
+                fastleft = 1;
+                LAndRmove = -1;
             }
         }
 
         if (rightTurn)
         {
+            /*rightTurn = false;
+            Vector3 rotation = transform.localEulerAngles;
+            rotation.y = (int)(rotation.y + 90);
+            transform.localEulerAngles = rotation;*/
+            //LAndRmove -= 1;
+
             a = 180f * Time.deltaTime;
             if (b + a > 90f)
             {
@@ -127,37 +135,19 @@ public class move : MonoBehaviour
             {
                 rightTurn = false;
                 b = 0f;
+                Vector3 rotation = transform.localEulerAngles;
+                rotation.y = (int)(rotation.y / 89) * 90;
+                transform.localEulerAngles = rotation;
                 StartCooldown();
             }
-        }*/
-        /*if (leftTurn)
-        {
-            float rotationSpeed = 90f; // âÒì]ë¨ìxÇê›íË
-            Quaternion targetRotation = Quaternion.Euler(0, -90, 0);
-            myTransform.rotation = Quaternion.RotateTowards(myTransform.rotation, targetRotation, rotationSpeed);
-
-            if (myTransform.rotation == targetRotation)
+            if (fastright == 0)
             {
-                leftTurn = false;
-                StartCooldown();
+                fastright = 1;
+                LAndRmove = 1;
             }
-
         }
-
-        if (rightTurn)
-        {
-            float rotationSpeed = 90f; // âÒì]ë¨ìxÇê›íË
-            Quaternion targetRotation = Quaternion.Euler(0, 90, 0);
-            myTransform.rotation = Quaternion.RotateTowards(myTransform.rotation, targetRotation, rotationSpeed);
-            myTransform.position +=new Vector3
-            if (myTransform.rotation == targetRotation)
-            {
-                rightTurn = false;
-                StartCooldown();
-            }
-        }*/
     }
-        public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (isCooldown)
         {
@@ -168,6 +158,7 @@ public class move : MonoBehaviour
             if (rightTurn == false)
             {
                 leftTurn = true;
+
             }
         }
         if (other.gameObject.tag == "rightwall")
@@ -176,51 +167,57 @@ public class move : MonoBehaviour
             {
                 rightTurn = true;
             }
-            }
-            if (other.gameObject.tag == "buckwall")
+        }
+        if (other.gameObject.tag == "buckwall")
         {
-            animator.SetBool("buck", true);
+            hukitobe = transform.forward;
             buck = true;
             HP -= 2;
             runSpeed = 0;
-            buckSpeed = -0.35f;
+            buckSpeed = -15f;
             StartCoroutine(buckNow());
         }
         if (other.gameObject.tag == "NPCs")
         {
-            animator.SetBool("dame", true);
+            hukitobe = transform.forward;
             HP -= 1;
             runSpeed = 0;
-            NbuckSpeed = -0.02f;
+            NbuckSpeed = -10f;
             Nbuck = true;
             StartCoroutine(running());
         }
     }
     IEnumerator buckNow()
     {
-        
-        yield return new WaitForSeconds(2);
+        animator.SetBool("buck", true);
+        yield return new WaitForSeconds(1);
         animator.SetBool("buck", false);
-        buck = false; 
+        buck = false;
+        animator.SetBool("run", true);
         if (HP <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
-        yield return new WaitForSeconds(0.5f);
-        runSpeed = 0.3f;
+        runSpeed = 10f;
+        Vector3 rotation = transform.localEulerAngles;
+        rotation.y = (int)(rotation.y / 85) * 90;
+        transform.localEulerAngles = rotation;
     }
     IEnumerator running()
     {
-        yield return new WaitForSeconds(2);
+        animator.SetBool("dame", true);
+        yield return new WaitForSeconds(1);
         animator.SetBool("dame", false);
         Nbuck = false;
+        animator.SetBool("run", true);
         if (HP <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
-        yield return new WaitForSeconds(0.5f);
-        runSpeed = 0.3f;
-        yield return new WaitForSeconds(3);
+        runSpeed = 10f;
+        Vector3 rotation = transform.localEulerAngles;
+        rotation.y = (int)(rotation.y / 85) * 90;
+        transform.localEulerAngles = rotation;
     }
     private void StartCooldown()
     {
@@ -230,28 +227,70 @@ public class move : MonoBehaviour
     void Move()
     {
         var speed = Vector3.zero;
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 0)
         {
-            speed.z = -PlayerSpeed;
-        }
-        if (Input.GetKeyDown(KeyCode.A)&&LAndRmove>=0)
-        {
-            if (!Physics.Raycast(transform.position, -transform.right, 6))
+            Vector3 Ponta = transform.position;
+            Vector3 right = transform.right;
+            Ray ray = new Ray(Ponta, right);
+            RaycastHit hit;
+            if (!Physics.Raycast(ray, out hit, 6))
             {
-            speed = Vector3.left*6;
-            LAndRmove -= 1;
-            }
+                Debug.DrawRay(Ponta, right, Color.red);
+                if (hit.collider != null)
+                {
+                    if (!hit.collider.CompareTag("NotR"))
+                    {
+                        speed = Vector3.left * 6;
+                        LAndRmove -= 1;
+                    }
+                }
+                else
+                {
+                    speed = Vector3.left * 6;
+                    LAndRmove -= 1;
+                }
 
-            
-        }
-        if (Input.GetKeyDown(KeyCode.D)&&LAndRmove<=0)
-        {
-            if (!Physics.Raycast(transform.position, transform.right, 6))
-            {
-                speed = Vector3.right * 6;
-                LAndRmove += 1;
+
             }
         }
-        transform.Translate(speed,Space.Self);
+        else if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 1)
+        {
+            speed = Vector3.left * 6;
+            LAndRmove -= 1;
+        }
+
+            if (Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0&& GetA.aisu==0)
+            {
+                Vector3 Ponta = transform.position;
+                Vector3 right = transform.right;
+                Ray ray = new Ray(Ponta, right);
+                RaycastHit hit;
+                if (!Physics.Raycast(ray, out hit, 6))
+                {
+                    Debug.DrawRay(Ponta, right, Color.red);
+                    if (hit.collider != null)
+                    {
+                        if (!hit.collider.CompareTag("NotR"))
+                        {
+                            speed = Vector3.right * 6;
+                            LAndRmove += 1;
+                        }
+                    }
+                    else
+                    {
+                        speed = Vector3.right * 6;
+                        LAndRmove += 1;
+                    }
+
+
+                }
+
+            }else if(Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0 && GetA.aisu == 1)
+        {
+            speed = Vector3.right * 6;
+            LAndRmove += 1;
+        }
+        transform.Translate(speed, Space.Self);
     }
 }
+

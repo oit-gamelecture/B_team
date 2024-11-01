@@ -19,7 +19,7 @@ public class NPCMove : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetBool("walk", true);
-        NPCspeed = 0.1f;
+        NPCspeed = 0f;
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class NPCMove : MonoBehaviour
         speed.z = NPCspeed;
         transform.Translate(speed);
         Transform myTransform = this.transform;
-        if (NPCLeft)
+        /*if (NPCLeft)
         {
             a = -90f * Time.deltaTime;
             if (b + a < -90f)
@@ -89,7 +89,7 @@ public class NPCMove : MonoBehaviour
                 NPCLeftTurn = false;
                 b = 0f;
             }
-        }
+        }*/
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -121,7 +121,7 @@ public class NPCMove : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         animator.SetBool("walk", true);
-        NPCspeed = 0.1f;
+        NPCspeed = 0f;
     }
 
 }

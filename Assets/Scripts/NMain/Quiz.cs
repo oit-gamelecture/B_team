@@ -51,7 +51,7 @@ public class Quiz : MonoBehaviour
         kennsuu.text = queue.Count.ToString();
         if (queue.Count > 5)
         {
-            Angry.angry += 0.0005f;
+            Angry.angry += queue.Count*0.0001;
         }
         
 

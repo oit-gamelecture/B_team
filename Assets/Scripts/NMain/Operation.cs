@@ -81,7 +81,7 @@ public class Operation : MonoBehaviour
     {
         if(other.gameObject.tag=="clearwall")
         {
-            SceneManager.LoadScene("ClearScene2");
+            SceneManager.LoadScene("ClearScene1");
         }
     }
 }

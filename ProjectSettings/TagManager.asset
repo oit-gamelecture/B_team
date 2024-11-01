@@ -16,6 +16,7 @@ TagManager:
   - trip
   - clearwall
   - NPCLeftTurn
+  - NotR
   layers:
   - Default
   - TransparentFX

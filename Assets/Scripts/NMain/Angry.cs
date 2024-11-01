@@ -17,6 +17,7 @@ public class Angry : MonoBehaviour
 
     void Update()
     {
+        ScoerClass.hyouka = angry;
         if(angry>=0.5)
         {
             angry = 0.5;

@@ -1997,7 +1997,7 @@ GameObject:
   - component: {fileID: 5409919017269267342}
   - component: {fileID: 6664524476514430665}
   - component: {fileID: 5668449156934735072}
-  - component: {fileID: -5234899812226728528}
+  - component: {fileID: 1298389632374886239}
   m_Layer: 0
   m_Name: NPC!!
   m_TagString: NPCs
@@ -2015,7 +2015,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 65.42}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6780080834836132526}
@@ -2096,7 +2096,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-5234899812226728528
+--- !u!114 &1298389632374886239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
