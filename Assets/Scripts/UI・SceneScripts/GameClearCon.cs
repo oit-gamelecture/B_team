@@ -36,7 +36,7 @@ public class GameClearCon : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Escape) && !isTransitioning)
         {
-            SceneManager.LoadScene("Nmain");
+            SceneManager.LoadScene("main");
             // ScoreManager.Instance.ResetScore();
             isTransitioning = true;  // シーン遷移が二重に実行されないようにする
             StartCoroutine(PlaySoundAndTransitionEnd());
