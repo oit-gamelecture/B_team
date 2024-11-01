@@ -28,6 +28,14 @@ public class move : MonoBehaviour
     public int fastleft;
     public GameObject so;
     private a GetA;
+    public bool wallTurn1;
+    public bool wallTurn2;
+    public int wc;
+    public bool down;
+    public GameObject Came;
+    public float Cameee;
+    public bool UUPP;
+    public bool down2;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,7 +43,7 @@ public class move : MonoBehaviour
         fastright = 0;
         fastleft = 0;
         GetA= so.GetComponent<a>();
-        
+
     }
 
     // Update is called once per frame
@@ -56,6 +64,7 @@ public class move : MonoBehaviour
         {
             animator.SetBool("run", true);
             speed.z = runSpeed;
+
             // transform.Translate(speed * Time.deltaTime);
 
         }
@@ -65,12 +74,12 @@ public class move : MonoBehaviour
             animator.SetBool("run", false);
             runSpeed = 0f;
             speed.z = buckSpeed;
-            Debug.Log(hukitobe * buckSpeed);
             transform.position += hukitobe * buckSpeed * Time.deltaTime;
             Vector3 rotation = transform.localEulerAngles;
-            rotation.y = (int)(rotation.y / 89) * 90;
+            rotation.y = (int)(rotation.y / 80) * 90;
             transform.localEulerAngles = rotation;
             transform.Translate(speed * Time.deltaTime);
+
         }
         else if (Nbuck)
         {
@@ -80,9 +89,46 @@ public class move : MonoBehaviour
             Debug.Log(hukitobe * NbuckSpeed);
             transform.position += hukitobe * NbuckSpeed * Time.deltaTime;
             Vector3 rotation = transform.localEulerAngles;
-            rotation.y = (int)(rotation.y / 89) * 90;
+            rotation.y = (int)(rotation.y / 85) * 90;
             transform.localEulerAngles = rotation;
             transform.Translate(speed * Time.deltaTime);
+        }
+
+        if (down == true)
+        {
+            a = -90f * Time.deltaTime;
+            if (b + a < -90f)
+            {
+                a = -90 - b;
+            }
+            b += a;
+
+            myTransform.Rotate(0, a, 0);
+            if (b <= -90f)
+            {
+                b = 0f;
+                down = false;
+                down2 = true;
+            }
+        }
+        if (down2 == true)
+        {
+            a = 90f * Time.deltaTime;
+            if (b + a >90f)
+            {
+                a = 90 - b;
+            }
+            b += a;
+
+            myTransform.Rotate(0, a, 0);
+            if (b >= 90f)
+            {
+                b = 0f;
+                Vector3 rotation = transform.localEulerAngles;
+                rotation.y = (int)(rotation.y / 85) * 90;
+                transform.localEulerAngles = rotation;
+                down2 = false;
+            }
         }
         Move();
         if (leftTurn)
@@ -105,7 +151,7 @@ public class move : MonoBehaviour
                 leftTurn = false;
                 b = 0f;
                 Vector3 rotation = transform.localEulerAngles;
-                rotation.y = (int)(rotation.y / 89) * 90;
+                rotation.y = (int)(rotation.y / 85) * 90;
                 transform.localEulerAngles = rotation;
                 StartCooldown();
             }
@@ -136,7 +182,7 @@ public class move : MonoBehaviour
                 rightTurn = false;
                 b = 0f;
                 Vector3 rotation = transform.localEulerAngles;
-                rotation.y = (int)(rotation.y / 89) * 90;
+                rotation.y = (int)(rotation.y / 85) * 90;
                 transform.localEulerAngles = rotation;
                 StartCooldown();
             }
@@ -146,6 +192,9 @@ public class move : MonoBehaviour
                 LAndRmove = 1;
             }
         }
+
+
+
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -182,25 +231,30 @@ public class move : MonoBehaviour
             hukitobe = transform.forward;
             HP -= 1;
             runSpeed = 0;
-            NbuckSpeed = -10f;
+            NbuckSpeed = -2f;
             Nbuck = true;
             StartCoroutine(running());
         }
     }
+
     IEnumerator buckNow()
     {
         animator.SetBool("buck", true);
         yield return new WaitForSeconds(1);
         animator.SetBool("buck", false);
         buck = false;
+        down = true;
+        Vector3 rotation = transform.localEulerAngles;
+        rotation.y = (int)(rotation.y / 85) * 90;
+        transform.localEulerAngles = rotation;
         animator.SetBool("run", true);
         if (HP <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            //SceneManager.LoadScene("GameOver");
         }
         runSpeed = 10f;
-        Vector3 rotation = transform.localEulerAngles;
-        rotation.y = (int)(rotation.y / 85) * 90;
+
+        rotation.y = (int)(rotation.y / 80) * 90;
         transform.localEulerAngles = rotation;
     }
     IEnumerator running()

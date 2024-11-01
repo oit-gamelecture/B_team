@@ -1998,6 +1998,7 @@ GameObject:
   - component: {fileID: 6664524476514430665}
   - component: {fileID: 5668449156934735072}
   - component: {fileID: 1298389632374886239}
+  - component: {fileID: -165519226575208244}
   m_Layer: 0
   m_Name: NPC!!
   m_TagString: NPCs
@@ -2069,7 +2070,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.22243194
   m_Height: 1.8628693
@@ -2116,6 +2117,27 @@ MonoBehaviour:
   b: 0
   animator: {fileID: 0}
   NPCspeed: 0
+--- !u!65 &-165519226575208244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728014160923188860}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5728129825775727534
 GameObject:
   m_ObjectHideFlags: 0

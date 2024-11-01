@@ -19,7 +19,7 @@ public class NPCMove : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetBool("walk", true);
-        NPCspeed = 0f;
+        NPCspeed = 3f;
     }
 
     // Update is called once per frame
@@ -27,27 +27,37 @@ public class NPCMove : MonoBehaviour
     {
         var speed = Vector3.zero;
         speed.z = NPCspeed;
-        transform.Translate(speed);
+        transform.Translate(speed*Time.deltaTime);
         Transform myTransform = this.transform;
-        /*if (NPCLeft)
+        Vector3 rotation = transform.localEulerAngles;
+        rotation.y = (int)(rotation.y / 85) * 90;
+        transform.localEulerAngles = rotation;
+        if (NPCLeft)
         {
-            a = -90f * Time.deltaTime;
-            if (b + a < -90f)
-            {
-                a = -90 - b;
-            }
-            b += a;
+            rotation.y = (int)(rotation.y - 90);
+            transform.localEulerAngles = rotation;
+            NPCLeft = false;
+            /* a = -90f * Time.deltaTime;
+             if (b + a < -90f)
+             {
+                 a = -90 - b;
+             }
+             b += a;
 
-            myTransform.Rotate(0, a, 0);
-            if (b <= -90f)
-            {
-                NPCLeft = false;
-                b = 0f;
-            }
+             myTransform.Rotate(0, a, 0);
+             if (b <= -90f)
+             {
+                 NPCLeft = false;
+                 b = 0f;
+             }*/
         }
             if (NPCRight)
             {
-                a = 90f * Time.deltaTime;
+            rotation.y = (int)(rotation.y + 90);
+            transform.localEulerAngles = rotation;
+            NPCRight = false;
+            /*
+            a = 90f * Time.deltaTime;
                 if (b + a > 90f)
                 {
                     a = 90 - b;
@@ -58,38 +68,14 @@ public class NPCMove : MonoBehaviour
                 {
                     NPCRight = false;
                     b = 0f;
-            }
+            }*/
         }
         if (NPCTurn)
         {
-            a = 90f * Time.deltaTime;
-            if (b + a > 180f)
-            {
-                a = 180 - b;
-            }
-            b += a;
-            myTransform.Rotate(0, a, 0);
-            if (b >= 180f)
-            {
-                NPCTurn = false;
-                b = 0f;
-            }
+            rotation.y = (int)(rotation.y + 180);
+            transform.localEulerAngles = rotation;
+            NPCTurn = false;
         }
-        if (NPCLeftTurn)
-        {
-            a = -90f * Time.deltaTime;
-            if (b + a <- 180f)
-            {
-                a = -180 - b;
-            }
-            b += a;
-            myTransform.Rotate(0, a, 0);
-            if (b <= -180f)
-            {
-                NPCLeftTurn = false;
-                b = 0f;
-            }
-        }*/
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -105,10 +91,7 @@ public class NPCMove : MonoBehaviour
         {
             NPCTurn = true;
         }
-        if (other.gameObject.tag == "NPCLeftTurn")
-        {
-            NPCLeftTurn = true;
-        }
+
 
         if (other.gameObject.tag == "Player")
         {
@@ -121,7 +104,7 @@ public class NPCMove : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         animator.SetBool("walk", true);
-        NPCspeed = 0f;
+        NPCspeed = 3f;
     }
 
 }
