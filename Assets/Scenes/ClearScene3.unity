@@ -2232,8 +2232,10 @@ MonoBehaviour:
   uiText: {fileID: 1084523136}
   messages:
   - "\u4E0A\u53F8:\u304A\u524D\u306F\u30AF\u30D3\u3060"
+  - "\u4E0A\u53F8:\u30E1\u30FC\u30EB\u3082\u8FD4\u305B\u306A\u3044\u3088\u3046\u306A\u3084\u3064\u306F"
+  - "\u4E0A\u53F8:\u73FE\u4EE3\u793E\u4F1A\u3092\u751F\u304D\u6B8B\u308C\u306A\u3044"
   - "\u4E0A\u53F8:\u3055\u3063\u3055\u3068\u51FA\u3066\u3044\u3051"
-  switchInterval: 3.5
+  switchInterval: 2.5
 --- !u!4 &660135181
 Transform:
   m_ObjectHideFlags: 0
