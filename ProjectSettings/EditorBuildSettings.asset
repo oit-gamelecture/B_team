@@ -12,23 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue.unity
     guid: 54ffeb9d2b582e940a8b4b5d520ed81a
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 87372bfbe8c5b0e4396ed9c9ba85bb0d
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: bad85340e6a649f4e8718826da51f41f
-  - enabled: 1
-    path: Assets/Scenes/GameOverMoney.unity
-    guid: 72528ccaa8951554b8072d24becbbf42
-  - enabled: 1
-    path: Assets/Scenes/GameClear.unity
-    guid: ed0a879662c12c04cb9924e30b8bca9f
-  - enabled: 1
     path: Assets/Scripts/NMain/sean/NMain.unity
     guid: f41ce932bb4997b429d128b05de6e363
   - enabled: 1
-    path: Assets/Scripts/NMain/sean/holeEND.unity
-    guid: 024c9e2d9355e694bab0b963d380a1ec
+    path: Assets/Scenes/GameOver.unity
+    guid: bad85340e6a649f4e8718826da51f41f
   - enabled: 1
     path: Assets/Scenes/ClearScene1.unity
     guid: 3320c0f982115c647b126bb65c2259e4
