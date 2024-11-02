@@ -14,14 +14,14 @@ public class TimeCount : MonoBehaviour
     // Start is called before the fidrst frame update
     void Start()
     {
-        Maxtime = 120f;
-        TimerCount = 0;
+        Maxtime = 150f;
+        TimerCount = Maxtime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimerCount=Maxtime - Time.time;
+        TimerCount-=Time.deltaTime;
         float percent = (float)TimerCount / Maxtime;
         Timer.fillAmount = percent;
         if(percent<=0)

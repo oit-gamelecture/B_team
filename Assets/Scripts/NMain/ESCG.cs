@@ -7,11 +7,16 @@ public class ESCG : MonoBehaviour
 {
     public GameObject Panel;
     private AudioSource audioSource;
+    public GameObject[] otherCanvases;
     // Start is called before the first frame update
     void Start()
     {
         Panel.SetActive(false);
         audioSource = gameObject.GetComponent<AudioSource>();
+        foreach(var canvas in otherCanvases)
+        {
+            canvas.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -28,11 +33,16 @@ public class ESCG : MonoBehaviour
                     audioSource.Stop();
                 }
                 audioSource.loop = false;
+
+                foreach (var canvas in otherCanvases)
+                {
+                    canvas.SetActive(false);
+                }
             }
             else
             {
                 Time.timeScale = 1;
-                audioSource.loop =true;
+                audioSource.loop = true;
                 if (!audioSource.isPlaying)
                 {
                     audioSource.Play();
