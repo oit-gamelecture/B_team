@@ -43,7 +43,7 @@ public class move : MonoBehaviour
         fastright = 0;
         fastleft = 0;
         GetA= so.GetComponent<a>();
-
+        LAndRmove = 0;
     }
 
     // Update is called once per frame
@@ -266,7 +266,7 @@ public class move : MonoBehaviour
         animator.SetBool("run", true);
         if (HP <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            //SceneManager.LoadScene("GameOver");
         }
         runSpeed = 10f;
         Vector3 rotation = transform.localEulerAngles;

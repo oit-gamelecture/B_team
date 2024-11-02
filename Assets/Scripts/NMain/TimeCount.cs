@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimeCount : MonoBehaviour
@@ -14,6 +15,7 @@ public class TimeCount : MonoBehaviour
     void Start()
     {
         Maxtime = 120f;
+        TimerCount = 0;
     }
 
     // Update is called once per frame
@@ -22,5 +24,9 @@ public class TimeCount : MonoBehaviour
         TimerCount=Maxtime - Time.time;
         float percent = (float)TimerCount / Maxtime;
         Timer.fillAmount = percent;
+        if(percent<=0)
+        {
+            SceneManager.LoadScene("clearscene2");
+        }
     }
 }
