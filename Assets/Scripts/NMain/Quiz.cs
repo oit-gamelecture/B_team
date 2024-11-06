@@ -50,7 +50,7 @@ public class Quiz : MonoBehaviour
         kennsuu.text = queue.Count.ToString();
         if (queue.Count > 5)
         {
-            Angry.angry += queue.Count*0.0001;
+            Angry.angry += queue.Count*0.0002;
         }
         
 
@@ -179,7 +179,7 @@ public class Quiz : MonoBehaviour
         }
         else
         {
-            Angry.angry+=0.1f;
+            Angry.angry+=0.2f;
             Debug.Log("‚Í‚¸‚ê");
         }
         Button.SetActive(false);
