@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class ESCG : MonoBehaviour
 {
     public GameObject Panel;
-    private AudioSource audioSource;
+    private AudioSource[] audioSources;
     public GameObject[] otherCanvases;
     // Start is called before the first frame update
     void Start()
     {
         Panel.SetActive(false);
-        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSources = gameObject.GetComponents<AudioSource>();
         foreach(var canvas in otherCanvases)
         {
             canvas.SetActive(false);
@@ -28,11 +28,16 @@ public class ESCG : MonoBehaviour
             if (Panel.activeSelf == true)
             {
                 Time.timeScale = 0;
-                if(audioSource.isPlaying)
+                foreach(var source in audioSources)
+                    
                 {
-                    audioSource.Stop();
+                    if (source.isPlaying)
+                    {
+                        source.Stop();
+                    }
+                    source.loop = false;
                 }
-                audioSource.loop = false;
+
 
                 foreach (var canvas in otherCanvases)
                 {
@@ -42,13 +47,18 @@ public class ESCG : MonoBehaviour
             else
             {
                 Time.timeScale = 1;
-                audioSource.loop = true;
-                if (!audioSource.isPlaying)
+                foreach (var source in audioSources)
                 {
-                    audioSource.Play();
+                    source.loop = true;
+
+
+                    if (!source.isPlaying)
+                    {
+                        source.Play();
+                    }
+                }
                 }
             }
-        }
     }
     public void Title()
     {

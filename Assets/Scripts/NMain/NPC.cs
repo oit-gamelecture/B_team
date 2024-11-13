@@ -37,7 +37,7 @@ public class NPC : MonoBehaviour
         NPCs[10].transform.position = new Vector3(734, 1, 1060);
 
         pNPCs[0].transform.position = new Vector3(725,1,329);
-        pNPCs[1].transform.position = new Vector3(306,1,260);
+        pNPCs[1].transform.position = new Vector3(265,1,260);
         pNPCs[2].transform.position = new Vector3(522,1,272);
         pNPCs[3].transform.position = new Vector3(130,1,133);
     }

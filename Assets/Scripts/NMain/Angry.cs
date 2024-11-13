@@ -18,9 +18,9 @@ public class Angry : MonoBehaviour
     void Update()
     {
         ScoerClass.hyouka = angry;
-        if(angry>=0.5)
+        if(angry>=1)
         {
-            angry = 0.5;
+            angry = 1;
             SceneManager.LoadScene("ClearScene3");
         }
         float percent = (float)angry / MaxAngry;
