@@ -36,7 +36,7 @@ public class GameClearCon : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Escape) && !isTransitioning)
         {
-            // SceneManager.LoadScene("main");
+            SceneManager.LoadScene("main");
             // ScoreManager.Instance.ResetScore();
             isTransitioning = true;  // シーン遷移が二重に実行されないようにする
             StartCoroutine(PlaySoundAndTransitionEnd());
@@ -48,17 +48,13 @@ public class GameClearCon : MonoBehaviour
         audioSource.PlayOneShot(buttonAudioClip);
         yield return new WaitForSeconds(1.5f);  // 効果音が鳴り終わるまで待機
         SceneManager.LoadScene("Title");
-        //Debug.Log("終了するよ");
-
         //ScoreManager.Instance.ResetScore();
     }
 
     private IEnumerator PlaySoundAndTransitionEnd()
     {
-        Debug.Log("終了するよ");
         audioSource.PlayOneShot(buttonAudioClip);
         yield return new WaitForSeconds(1f);  // 効果音が鳴り終わるまで待機
         Application.Quit();
-        Debug.Log("終了したよ");
     }
 }

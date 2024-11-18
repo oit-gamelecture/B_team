@@ -43,13 +43,13 @@ public class move : MonoBehaviour
         fastright = 0;
         fastleft = 0;
         GetA= so.GetComponent<a>();
-        LAndRmove = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+
         var speed = Vector3.zero;
         if (isCooldown)
         {
@@ -60,13 +60,11 @@ public class move : MonoBehaviour
                 cooldownTimer = 0f;
             }
         }
-        if (!buck && !Nbuck&&!down&&!down2&&!leftTurn&&!rightTurn)
+        if (!buck && !Nbuck)
         {
             animator.SetBool("run", true);
             speed.z = runSpeed;
-            Vector3 rotation = transform.localEulerAngles;
-            rotation.y = (int)(rotation.y / 85) * 90;
-            transform.localEulerAngles = rotation;
+
             // transform.Translate(speed * Time.deltaTime);
 
         }
@@ -132,7 +130,7 @@ public class move : MonoBehaviour
                 down2 = false;
             }
         }
-
+        Move();
         if (leftTurn)
         {
             /* leftTurn = false;
@@ -157,8 +155,11 @@ public class move : MonoBehaviour
                 transform.localEulerAngles = rotation;
                 StartCooldown();
             }
-
+            if (fastleft == 0)
+            {
+                fastleft = 1;
                 LAndRmove = -1;
+            }
         }
 
         if (rightTurn)
@@ -185,8 +186,11 @@ public class move : MonoBehaviour
                 transform.localEulerAngles = rotation;
                 StartCooldown();
             }
+            if (fastright == 0)
+            {
+                fastright = 1;
                 LAndRmove = 1;
-            
+            }
         }
 
 
@@ -219,16 +223,15 @@ public class move : MonoBehaviour
             buck = true;
             HP -= 2;
             runSpeed = 0;
-            buckSpeed = -20f;
+            buckSpeed = -15f;
             StartCoroutine(buckNow());
         }
         if (other.gameObject.tag == "NPCs")
         {
-            Debug.Log(99);
             hukitobe = transform.forward;
             HP -= 1;
             runSpeed = 0;
-            NbuckSpeed = -8f;
+            NbuckSpeed = -2f;
             Nbuck = true;
             StartCoroutine(running());
         }
@@ -263,7 +266,7 @@ public class move : MonoBehaviour
         animator.SetBool("run", true);
         if (HP <= 0)
         {
-            //SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOver");
         }
         runSpeed = 10f;
         Vector3 rotation = transform.localEulerAngles;
@@ -278,16 +281,15 @@ public class move : MonoBehaviour
     void Move()
     {
         var speed = Vector3.zero;
-        if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 0&&down==false&&down2==false)
+        if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 0)
         {
-
             Vector3 Ponta = transform.position;
-            Vector3 left = -transform.right;
-            Ray ray = new Ray(Ponta, left);
+            Vector3 right = transform.right;
+            Ray ray = new Ray(Ponta, right);
             RaycastHit hit;
             if (!Physics.Raycast(ray, out hit, 6))
             {
-                Debug.DrawRay(Ponta, left, Color.red);
+                Debug.DrawRay(Ponta, right, Color.red);
                 if (hit.collider != null)
                 {
                     if (!hit.collider.CompareTag("NotR"))
@@ -300,19 +302,18 @@ public class move : MonoBehaviour
                 {
                     speed = Vector3.left * 6;
                     LAndRmove -= 1;
-                    Debug.Log(88);
                 }
 
 
             }
         }
-        else if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 1 && down == false && down2 == false)
+        else if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 1)
         {
             speed = Vector3.left * 6;
             LAndRmove -= 1;
         }
 
-            if (Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0&& GetA.aisu==0 && down == false && down2 == false)
+            if (Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0&& GetA.aisu==0)
             {
                 Vector3 Ponta = transform.position;
                 Vector3 right = transform.right;
@@ -320,6 +321,7 @@ public class move : MonoBehaviour
                 RaycastHit hit;
                 if (!Physics.Raycast(ray, out hit, 6))
                 {
+                    Debug.DrawRay(Ponta, right, Color.red);
                     if (hit.collider != null)
                     {
                         if (!hit.collider.CompareTag("NotR"))
@@ -337,7 +339,7 @@ public class move : MonoBehaviour
 
                 }
 
-            }else if(Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0 && GetA.aisu == 1 && down == false && down2 == false)
+            }else if(Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0 && GetA.aisu == 1)
         {
             speed = Vector3.right * 6;
             LAndRmove += 1;

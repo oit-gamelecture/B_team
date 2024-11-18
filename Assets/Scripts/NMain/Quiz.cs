@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -50,7 +51,7 @@ public class Quiz : MonoBehaviour
         kennsuu.text = queue.Count.ToString();
         if (queue.Count > 5)
         {
-            Angry.angry += queue.Count*0.0002;
+            Angry.angry += queue.Count*0.0001;
         }
         
 
@@ -179,7 +180,7 @@ public class Quiz : MonoBehaviour
         }
         else
         {
-            Angry.angry+=0.2f;
+            Angry.angry+=0.1f;
             Debug.Log("‚Í‚¸‚ê");
         }
         Button.SetActive(false);

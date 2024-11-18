@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class Operation : MonoBehaviour
 {
@@ -16,7 +15,6 @@ public class Operation : MonoBehaviour
     public bool see=false;
     public GameObject mailmail;
     private Quiz messe;
-
     void Start()
     {
         sumaho.SetActive(false);
@@ -44,7 +42,6 @@ public class Operation : MonoBehaviour
         }
 
     }
- 
     public void mailButton()
     {
          mail.SetActive(true); 
@@ -80,7 +77,6 @@ public class Operation : MonoBehaviour
         }
 
     }
-    
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="clearwall")

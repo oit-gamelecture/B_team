@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TimeCount : MonoBehaviour
@@ -14,19 +13,14 @@ public class TimeCount : MonoBehaviour
     // Start is called before the fidrst frame update
     void Start()
     {
-        Maxtime = 150f;
-        TimerCount = Maxtime;
+        Maxtime = 120f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimerCount-=Time.deltaTime;
+        TimerCount=Maxtime - Time.time;
         float percent = (float)TimerCount / Maxtime;
         Timer.fillAmount = percent;
-        if(percent<=0)
-        {
-            SceneManager.LoadScene("clearscene2");
-        }
     }
 }
