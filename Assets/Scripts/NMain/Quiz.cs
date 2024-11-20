@@ -185,6 +185,7 @@ public class Quiz : MonoBehaviour
                 Angry.angry -= 0.1f;
             }
             Debug.Log("‚ ‚½‚è");
+
         }
         else
         {

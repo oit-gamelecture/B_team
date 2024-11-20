@@ -8,8 +8,8 @@ public class NPC : MonoBehaviour
     public GameObject prefab2;
     GameObject[] NPCs;
     GameObject[] pNPCs;
-    public int NPCCount = 11;
-    public int pNPCCount = 4;
+    private int NPCCount = 24;
+    private int pNPCCount = 4;
     void Start()
     {
         NPCs = new GameObject[NPCCount];
@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour
             NPCs[i] = Instantiate(prefab1, new Vector3(0, 0.5f, 0), Quaternion.identity);
             NPCs[i].tag = "NPCs";
         }
-        for (int i = 0;i < pNPCCount; i++)
+        for (int i = 0; i < pNPCCount; i++)
         {
             pNPCs[i] = Instantiate(prefab2, new Vector3(0, 0, 0), Quaternion.identity);
             pNPCs[i].tag = "NPCs";
@@ -35,6 +35,21 @@ public class NPC : MonoBehaviour
         NPCs[8].transform.position = new Vector3(730, 1, 570);
         NPCs[9].transform.position = new Vector3(152, 1, 850);
         NPCs[10].transform.position = new Vector3(734, 1, 1060);
+        NPCs[11].transform.position = new Vector3(344, 1, 232);
+        NPCs[12].transform.position = new Vector3(306.19f, 1, 267.37f);
+        NPCs[13].transform.position = new Vector3(243.19f, 1, 267.37f);
+        NPCs[14].transform.position = new Vector3(122.39f, 1, 267.37f);
+        NPCs[15].transform.position = new Vector3(96.8f, 1, 267.37f);
+        NPCs[16].transform.position = new Vector3(66.589f, 1, 268);
+        NPCs[17].transform.position = new Vector3(351, 1, 180);
+        NPCs[18].transform.position = new Vector3(290.90f, 1, 145);
+        NPCs[19].transform.position = new Vector3(320.41f, 1, 140.96f);
+        NPCs[20].transform.position = new Vector3(258.54f, 1, 140.96f);
+        NPCs[21].transform.position = new Vector3(240.44f, 1, 140.96f);
+        NPCs[22].transform.position = new Vector3(141.75f, 1, 139.95f);
+        NPCs[23].transform.position = new Vector3(148.05f, 1, 145);
+
+
 
         pNPCs[0].transform.position = new Vector3(725,1,329);
         pNPCs[1].transform.position = new Vector3(265,1,260);
