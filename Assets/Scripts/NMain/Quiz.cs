@@ -25,7 +25,8 @@ public class Quiz : MonoBehaviour
     public TextMeshProUGUI kennsuu;
     public GameObject NextButton;
     public int b;
-    public AudioClip sound1;
+    public AudioClip SE;
+    public AudioClip WalkSE;
     AudioSource audioSource;
     void Start()
     {
@@ -37,11 +38,8 @@ public class Quiz : MonoBehaviour
         Angry = angryscp.GetComponent<Angry>();
         Button.SetActive(false);
         NextButton.SetActive(false);
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
+        audioSource = gameObject.AddComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -52,8 +50,25 @@ public class Quiz : MonoBehaviour
         {
             Angry.angry += queue.Count*0.0002;
         }
-        
-
+        if (ScoerClass.oto == true)
+        {
+            if (!audioSource.isPlaying)  // ä˘Ç…çƒê∂íÜÇ≈Ç»ÇØÇÍÇŒçƒê∂Ç∑ÇÈ
+            {
+                audioSource.clip = WalkSE;
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            if (audioSource.isPlaying)  // çƒê∂íÜÇÃèÍçáÇÃÇ›í‚é~Ç∑ÇÈ
+            {
+                audioSource.Stop();
+            }
+        }
+    }
+    public void SoundSliderOnValueChange(float newSliderValue)
+    {
+        audioSource.volume = newSliderValue;
     }
     private IEnumerator RandomCallMail()
     {
@@ -62,15 +77,9 @@ public class Quiz : MonoBehaviour
         yield return new WaitForSeconds(randomInterval);
         queue.Enqueue(a);
         Debug.Log(a);
-        //audioSource.PlayOneShot(sound1);
-        if (audioSource != null && sound1 != null)
-        {
-            audioSource.PlayOneShot(sound1);
-        }
-        else
-        {
-            Debug.LogError("audioSourceÇ‹ÇΩÇÕsound1Ç™nullÇ≈Ç∑");
-        }
+            audioSource.PlayOneShot(SE);
+
+
 
         StartCoroutine(RandomCallMail());
 

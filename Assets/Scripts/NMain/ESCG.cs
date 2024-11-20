@@ -28,6 +28,7 @@ public class ESCG : MonoBehaviour
             if (Panel.activeSelf == true)
             {
                 Time.timeScale = 0;
+                ScoerClass.oto = false;
                 foreach(var source in audioSources)
                     
                 {
@@ -47,6 +48,7 @@ public class ESCG : MonoBehaviour
             else
             {
                 Time.timeScale = 1;
+                ScoerClass.oto = true;
                 foreach (var source in audioSources)
                 {
                     source.loop = true;
