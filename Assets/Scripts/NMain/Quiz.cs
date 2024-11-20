@@ -73,8 +73,8 @@ public class Quiz : MonoBehaviour
     private IEnumerator RandomCallMail()
     {
 
-        float randomInterval = Random.Range(5f, 5f);
-        yield return new WaitForSeconds(randomInterval);
+        //float randomInterval = Random.Range(12, 12);
+        yield return new WaitForSeconds(9f);
         queue.Enqueue(a);
         Debug.Log(a);
             audioSource.PlayOneShot(SE);

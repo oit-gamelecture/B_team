@@ -8,7 +8,7 @@ public class NPC : MonoBehaviour
     public GameObject prefab2;
     GameObject[] NPCs;
     GameObject[] pNPCs;
-    private int NPCCount = 24;
+    private int NPCCount = 31;
     private int pNPCCount = 4;
     void Start()
     {
@@ -48,8 +48,13 @@ public class NPC : MonoBehaviour
         NPCs[21].transform.position = new Vector3(240.44f, 1, 140.96f);
         NPCs[22].transform.position = new Vector3(141.75f, 1, 139.95f);
         NPCs[23].transform.position = new Vector3(148.05f, 1, 145);
-
-
+        NPCs[24].transform.position = new Vector3(276.05f, 1, 148.58f);
+        NPCs[25].transform.position = new Vector3(210, 1, 133);
+        NPCs[26].transform.position = new Vector3(183.78f, 1, 148.57f);
+        NPCs[27].transform.position = new Vector3(357.05f, 1, 160);
+        NPCs[28].transform.position = new Vector3(350.97f, 1, 247.11f);
+        NPCs[29].transform.position = new Vector3(356.35f, 1, 206);
+        NPCs[30].transform.position = new Vector3(198.05f, 1, 147);
 
         pNPCs[0].transform.position = new Vector3(725,1,329);
         pNPCs[1].transform.position = new Vector3(265,1,260);
