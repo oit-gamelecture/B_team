@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 92e0e63b3f04fd748a488183c93cc760
+guid: 377f9ef4e532a914c9dc5704d9a19f4b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -46,12 +46,12 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 0
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -528,23 +528,23 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Dodging Back(Clone)
+    - name: Dodging Back (1)(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Beta_Surface
-      parentName: Dodging Back(Clone)
+      parentName: Dodging Back (1)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Beta_Joints
-      parentName: Dodging Back(Clone)
+      parentName: Dodging Back (1)(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: Dodging Back(Clone)
+      parentName: Dodging Back (1)(Clone)
       position: {x: 0.0027873425, y: 1.0719985, z: 0.011057513}
       rotation: {x: 0.0064583626, y: -0.0000000015965117, z: -0.00000024719552, w: 0.99997914}
       scale: {x: 1.0000001, y: 1, z: 1}
