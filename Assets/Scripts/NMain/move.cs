@@ -36,6 +36,7 @@ public class move : MonoBehaviour
     public float Cameee;
     public bool UUPP;
     public bool down2;
+    public GameObject[] otherCanvases;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -72,7 +73,10 @@ public class move : MonoBehaviour
         }
         else if (buck)
         {
-
+            foreach(var canvas in otherCanvases)
+            {
+                canvas.SetActive(false);
+            }
             animator.SetBool("run", false);
             runSpeed = 0f;
             speed.z = buckSpeed;
