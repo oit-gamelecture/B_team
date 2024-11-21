@@ -74,7 +74,7 @@ public class Quiz : MonoBehaviour
     {
 
         //float randomInterval = Random.Range(12, 12);
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(7f);
         queue.Enqueue(a);
         Debug.Log(a);
             audioSource.PlayOneShot(SE);

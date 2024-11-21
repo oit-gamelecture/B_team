@@ -61,7 +61,7 @@ public class move : MonoBehaviour
                 cooldownTimer = 0f;
             }
         }
-        if (!buck && !Nbuck&&!down&&!down2&&!leftTurn&&!rightTurn)
+        if (!buck && !Nbuck && !down && !down2 && !leftTurn && !rightTurn)
         {
             animator.SetBool("run", true);
             speed.z = runSpeed;
@@ -73,7 +73,7 @@ public class move : MonoBehaviour
         }
         else if (buck)
         {
-            foreach(var canvas in otherCanvases)
+            foreach (var canvas in otherCanvases)
             {
                 canvas.SetActive(false);
             }
@@ -87,7 +87,7 @@ public class move : MonoBehaviour
             transform.Translate(speed * Time.deltaTime);
 
         }
-        else if (Nbuck)
+        else if (Nbuck && buck == false)
         {
             animator.SetBool("run", false);
             runSpeed = 0f;
@@ -226,7 +226,7 @@ public class move : MonoBehaviour
             buckSpeed = -20f;
             StartCoroutine(buckNow());
         }
-        if (other.gameObject.tag == "NPCs")
+        if (other.gameObject.tag == "NPCs"&&buck==false)
         {
             Debug.Log(99);
             hukitobe = transform.forward;
