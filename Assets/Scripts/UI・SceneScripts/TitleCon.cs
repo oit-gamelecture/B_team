@@ -23,10 +23,6 @@ public class TitleCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float sin = Mathf.Sin(Time.time);
-        float absSin = Mathf.Abs(sin);
-        canvasGroup.alpha = absSin;
-
         if (Input.GetKey(KeyCode.Space) && !isTransitioning)
         {
             //SceneManager.LoadScene("Prologue");
