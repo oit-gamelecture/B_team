@@ -87,7 +87,7 @@ public class move : MonoBehaviour
             transform.Translate(speed * Time.deltaTime);
 
         }
-        else if (Nbuck && buck == false)
+        else if (Nbuck && buck == false&& down==false && down2==false)
         {
             animator.SetBool("run", false);
             runSpeed = 0f;
@@ -264,7 +264,10 @@ public class move : MonoBehaviour
         yield return new WaitForSeconds(1);
         animator.SetBool("dame", false);
         Nbuck = false;
+
         animator.SetBool("run", true);
+        yield return new WaitForSeconds(1);
+        transform.position += transform.right * 0.07f;
         if (HP <= 0)
         {
             //SceneManager.LoadScene("GameOver");
