@@ -21,22 +21,16 @@ public class Event : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // RightShiftで次のページに進む
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        // どのキーが押されてもTapDownUIを呼び出す
+        if (Input.anyKeyDown)
         {
-            NextPage();
-        }
-
-        // LeftShiftで前のページに戻る
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            PreviousPage();
+            TapDownUI();
         }
     }
 
-    // 次のページに進む
-    public void NextPage()
+    public void TapDownUI()
     {
+        // 次の画像に進む
         if (count < rulesprite.Length - 1) // 最後の画像でない場合
         {
             count++;
@@ -46,16 +40,6 @@ public class Event : MonoBehaviour
         {
             // 最後の画像の次はシーン遷移
             SceneManager.LoadScene("Title");
-        }
-    }
-
-    // 前のページに戻る
-    public void PreviousPage()
-    {
-        if (count > 0) // 最初の画像でない場合
-        {
-            count--;
-            ruleimage.sprite = rulesprite[count];
         }
     }
 }
