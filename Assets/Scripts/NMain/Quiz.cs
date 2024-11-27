@@ -27,6 +27,8 @@ public class Quiz : MonoBehaviour
     public int b;
     public AudioClip SE;
     public AudioClip WalkSE;
+    public AudioClip True;
+    public AudioClip False;
     AudioSource audioSource;
     void Start()
     {
@@ -185,12 +187,15 @@ public class Quiz : MonoBehaviour
                 Angry.angry -= 0.1f;
             }
             Debug.Log("‚ ‚½‚è");
+            audioSource.PlayOneShot(True);
+
 
         }
         else
         {
             Angry.angry+=0.2f;
             Debug.Log("‚Í‚¸‚ê");
+            audioSource.PlayOneShot(False);
         }
         Button.SetActive(false);
         answerText.text = buttonText.text;

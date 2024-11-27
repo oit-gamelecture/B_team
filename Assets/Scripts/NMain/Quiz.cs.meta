@@ -3,7 +3,20 @@ guid: 9414a5937aef4c14cbd90a4b04d49dc0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - answerButton: {instanceID: 0}
+  - answerEvent: {instanceID: 0}
+  - subjectBox: {instanceID: 0}
+  - contentBox: {instanceID: 0}
+  - angryscp: {instanceID: 0}
+  - Button: {instanceID: 0}
+  - answerText: {instanceID: 0}
+  - kennsuu: {instanceID: 0}
+  - NextButton: {instanceID: 0}
+  - SE: {instanceID: 0}
+  - WalkSE: {instanceID: 0}
+  - True: {instanceID: 0}
+  - False: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
