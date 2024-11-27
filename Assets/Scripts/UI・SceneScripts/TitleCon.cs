@@ -36,6 +36,11 @@ public class TitleCon : MonoBehaviour
             isTransitioning = true;  // シーン遷移が二重に実行されないようにする
             StartCoroutine(PlaySoundAndTransitionEnd());
         }
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && !isTransitioning)
+        {
+            isTransitioning = true; //シーン遷移が二重に実行されないようにする
+            StartCoroutine(PlaySoundAndTransition("Rule"));
+        }
     }
 
     private IEnumerator PlaySoundAndTransition()
@@ -43,6 +48,13 @@ public class TitleCon : MonoBehaviour
         audioSource.PlayOneShot(buttonAudioClip);
         yield return new WaitForSeconds(1f);  // 効果音が鳴り終わるまで待機
         SceneManager.LoadScene("Prologue");
+        ScoreManager.Instance.ResetScore();
+    }
+    private IEnumerator PlaySoundAndTransition(string sceneName)
+    {
+        audioSource.PlayOneShot(buttonAudioClip);
+        yield return new WaitForSeconds(1f);  // 効果音が鳴り終わるまで待機
+        SceneManager.LoadScene("Rule");
         ScoreManager.Instance.ResetScore();
     }
     private IEnumerator PlaySoundAndTransitionEnd()
