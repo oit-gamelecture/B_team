@@ -16,8 +16,13 @@ public class NPC : MonoBehaviour
         pNPCs = new GameObject[pNPCCount];
         for (int i = 0; i < NPCCount; i++)
         {
-            NPCs[i] = Instantiate(prefab1, new Vector3(0, 0.5f, 0), Quaternion.identity);
-            NPCs[i].tag = "NPCs";
+            if (i == 6 || i == 7 || i == 62||(i>=129&&i<=136))
+            {
+                continue;
+            }
+                NPCs[i] = Instantiate(prefab1, new Vector3(0, 0.5f, 0), Quaternion.identity);
+                NPCs[i].tag = "NPCs";
+            
         }
         for (int i = 0; i < pNPCCount; i++)
         {
@@ -30,8 +35,8 @@ public class NPC : MonoBehaviour
         NPCs[3].transform.position = new Vector3(-8, 1, 383);
         NPCs[4].transform.position = new Vector3(456, 1, 450);
         NPCs[5].transform.position = new Vector3(600, 1, 260);
-        //NPCs[6].transform.position = new Vector3(524, 1, 851);
-        //NPCs[7].transform.position = new Vector3(-7, 1, 716);
+        //NPCs[6].transform.position = new Vector3(600, 1, 260);
+        //NPCs[7].transform.position = new Vector3(600, 1, 260);
         NPCs[8].transform.position = new Vector3(730, 1, 570);
         NPCs[9].transform.position = new Vector3(152, 1, 850);
         NPCs[10].transform.position = new Vector3(734, 1, 1060);
@@ -152,36 +157,15 @@ public class NPC : MonoBehaviour
         NPCs[123].transform.position = new Vector3(461.4f, 1, 719f);
         NPCs[124].transform.position = new Vector3(449.6f, 1, 790f);
         NPCs[125].transform.position = new Vector3(455f, 1, 764f);
-        NPCs[126].transform.position = new Vector3(-7f, 1, 728f);
 
-        NPCs[127].transform.position = new Vector3(-12.4f, 1, 760.4f);
-        NPCs[128].transform.position = new Vector3(-12.4f, 1, 823.6f);
-        NPCs[129].transform.position = new Vector3(-12.1f, 1, 462.8f);
-        NPCs[107].transform.position = new Vector3(455.5f, 1, 821.78f);
-        NPCs[108].transform.position = new Vector3(455.5f, 1, 768.58f);
-        NPCs[109].transform.position = new Vector3(455.5f, 1, 647.98f);
-        NPCs[110].transform.position = new Vector3(455.5f, 1, 515.88f);
-        NPCs[111].transform.position = new Vector3(455.5f, 1, 548.68f);
-        NPCs[112].transform.position = new Vector3(455.5f, 1, 353.57f);
-        NPCs[113].transform.position = new Vector3(455.5f, 1, 318.88f);
-        NPCs[114].transform.position = new Vector3(455.5f, 1, 495.98f);
-        NPCs[115].transform.position = new Vector3(456f, 1, 344f);
-        NPCs[116].transform.position = new Vector3(449.30f, 1, 325f);
-        NPCs[117].transform.position = new Vector3(456.1f, 1, 435f);
-        NPCs[118].transform.position = new Vector3(449.4f, 1, 528f);
-        NPCs[119].transform.position = new Vector3(462.3f, 1, 517f);
-        NPCs[120].transform.position = new Vector3(462.3f, 1, 598f);
-        NPCs[121].transform.position = new Vector3(456.2f, 1, 584.14f);
-        NPCs[122].transform.position = new Vector3(455.2f, 1, 687f);
-        NPCs[123].transform.position = new Vector3(461.4f, 1, 719f);
-        NPCs[124].transform.position = new Vector3(449.6f, 1, 790f);
-        NPCs[125].transform.position = new Vector3(455f, 1, 764f);
-        NPCs[126].transform.position = new Vector3(-7f, 1, 728f);
+        NPCs[126].transform.position = new Vector3(-12.4f, 1, 760.4f);
+        NPCs[127].transform.position = new Vector3(-12.4f, 1, 823.6f);
+        NPCs[128].transform.position = new Vector3(-12.1f, 1, 462.8f); 
         
-        NPCs[127].transform.position = new Vector3(730.83f, 1, 297f);
-        NPCs[128].transform.position = new Vector3(730.83f, 1, 366f);
-        NPCs[129].transform.position = new Vector3(724.58f, 1, 408f);
-        NPCs[130].transform.position = new Vector3(739.38f, 1, 444f);
+        NPCs[137].transform.position = new Vector3(730.83f, 1, 297f);
+        NPCs[138].transform.position = new Vector3(730.83f, 1, 366f);
+        NPCs[139].transform.position = new Vector3(724.58f, 1, 408f);
+        NPCs[140].transform.position = new Vector3(739.38f, 1, 444f);
         NPCs[141].transform.position = new Vector3(737.58f, 1, 521f);
         NPCs[142].transform.position = new Vector3(724.08f, 1, 558f);
         NPCs[143].transform.position = new Vector3(732.08f, 1, 579f);

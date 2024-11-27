@@ -285,7 +285,11 @@ public class move : MonoBehaviour
     void Move()
     {
         var speed = Vector3.zero;
-        if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 0&&down==false&&down2==false)
+        if (Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.D))
+        {
+
+        }
+        else if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 0&&down==false&&down2==false&&!leftTurn&&!rightTurn)
         {
 
             Vector3 Ponta = transform.position;
@@ -313,13 +317,13 @@ public class move : MonoBehaviour
 
             }
         }
-        else if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 1 && down == false && down2 == false)
+        else if (Input.GetKeyDown(KeyCode.A) && LAndRmove >= 0 && GetA.aisu == 1 && down == false && down2 == false&&!leftTurn && !rightTurn)
         {
             speed = Vector3.left * 6;
             LAndRmove -= 1;
         }
 
-            if (Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0&& GetA.aisu==0 && down == false && down2 == false)
+            if (Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0&& GetA.aisu==0 && down == false && down2 == false && !leftTurn && !rightTurn)
             {
                 Vector3 Ponta = transform.position;
                 Vector3 right = transform.right;
@@ -344,7 +348,7 @@ public class move : MonoBehaviour
 
                 }
 
-            }else if(Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0 && GetA.aisu == 1 && down == false && down2 == false)
+            }else if(Input.GetKeyDown(KeyCode.D) && LAndRmove <= 0 && GetA.aisu == 1 && down == false && down2 == false && !leftTurn && !rightTurn)
         {
             speed = Vector3.right * 6;
             LAndRmove += 1;
