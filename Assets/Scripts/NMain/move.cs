@@ -36,6 +36,8 @@ public class move : MonoBehaviour
     public float Cameee;
     public bool UUPP;
     public bool down2;
+    public bool down3;
+    public bool down4;
     public GameObject[] otherCanvases;
     void Start()
     {
@@ -43,7 +45,7 @@ public class move : MonoBehaviour
         myTransform = this.transform;
         fastright = 0;
         fastleft = 0;
-        GetA= so.GetComponent<a>();
+        GetA = so.GetComponent<a>();
         LAndRmove = 0;
     }
 
@@ -87,7 +89,7 @@ public class move : MonoBehaviour
             transform.Translate(speed * Time.deltaTime);
 
         }
-        else if (Nbuck && buck == false&& down==false && down2==false)
+        else if (Nbuck && buck == false && down == false && down2 == false)
         {
             animator.SetBool("run", false);
             runSpeed = 0f;
@@ -119,21 +121,22 @@ public class move : MonoBehaviour
         }
         if (down2 == true)
         {
-            a = 90f * Time.deltaTime;
-            if (b + a >90f)
-            {
-                a = 90 - b;
-            }
-            b += a;
+           
+                a = 90f * Time.deltaTime;
+                if (b + a > 90f)
+                {
+                    a = 90 - b;
+                }
+                b += a;
 
-            myTransform.Rotate(0, a, 0);
-            if (b >= 90f)
-            {
-                b = 0f;
-                Vector3 rotation = transform.localEulerAngles;
-                rotation.y = (int)(rotation.y / 85) * 90;
-                transform.localEulerAngles = rotation;
-                down2 = false;
+                myTransform.Rotate(0, a, 0);
+                if (b >= 90f)
+                {
+                    b = 0f;
+                    Vector3 rotation = transform.localEulerAngles;
+                    rotation.y = (int)(rotation.y / 85) * 90;
+                    transform.localEulerAngles = rotation;
+                    down2 = false;
             }
         }
 
@@ -264,10 +267,10 @@ public class move : MonoBehaviour
         yield return new WaitForSeconds(1);
         animator.SetBool("dame", false);
         Nbuck = false;
-
+        
         animator.SetBool("run", true);
-        yield return new WaitForSeconds(1);
-        transform.position += transform.right * 0.07f;
+        yield return new WaitForSeconds(0.2f);
+        transform.position += transform.right * 0.25f;
         if (HP <= 0)
         {
             //SceneManager.LoadScene("GameOver");
