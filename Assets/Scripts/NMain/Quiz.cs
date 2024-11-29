@@ -29,6 +29,10 @@ public class Quiz : MonoBehaviour
     public AudioClip WalkSE;
     public AudioClip True;
     public AudioClip False;
+    public AudioClip KabeSE;
+    public AudioClip BIG;
+    public GameObject kaka;
+    private move Momo;
     AudioSource audioSource;
     void Start()
     {
@@ -41,14 +45,14 @@ public class Quiz : MonoBehaviour
         Button.SetActive(false);
         NextButton.SetActive(false);
         audioSource = gameObject.AddComponent<AudioSource>();
-
+        Momo = kaka.GetComponent<move>();
     }
 
     // Update is called once per frame
     void Update()
     {
         kennsuu.text = queue.Count.ToString();
-        if (queue.Count > 5)
+        if (queue.Count > 5 && Time.timeScale == 1)
         {
             Angry.angry += queue.Count*0.0002;
         }
@@ -67,6 +71,16 @@ public class Quiz : MonoBehaviour
                 audioSource.Stop();
             }
         }
+        if (Momo.kabeSE == true) { 
+            audioSource.PlayOneShot(KabeSE);
+            Momo.kabeSE = false; 
+        }
+        if(Momo.big==true)
+            {
+                audioSource.PlayOneShot(BIG);
+            Momo.big = false;
+            }
+
     }
     public void SoundSliderOnValueChange(float newSliderValue)
     {

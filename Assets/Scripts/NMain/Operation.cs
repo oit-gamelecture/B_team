@@ -32,7 +32,7 @@ public class Operation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)&&a==0)
+        if (Input.GetKeyDown(KeyCode.Q)&&a==0&&Time.timeScale==1)
         {
             see = !see;
             sumaho.SetActive(see);

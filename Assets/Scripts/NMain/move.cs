@@ -39,6 +39,8 @@ public class move : MonoBehaviour
     public bool down3;
     public bool down4;
     public GameObject[] otherCanvases;
+    public bool kabeSE;
+    public bool big;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,6 +49,8 @@ public class move : MonoBehaviour
         fastleft = 0;
         GetA = so.GetComponent<a>();
         LAndRmove = 0;
+        kabeSE = false;
+        big = false;
     }
 
     // Update is called once per frame
@@ -63,7 +67,7 @@ public class move : MonoBehaviour
                 cooldownTimer = 0f;
             }
         }
-        if (!buck && !Nbuck && !down && !down2 && !leftTurn && !rightTurn)
+        if (!buck && !Nbuck && !down && !down2 &&!down3&&!down4 && !leftTurn && !rightTurn)
         {
             animator.SetBool("run", true);
             speed.z = runSpeed;
@@ -89,7 +93,7 @@ public class move : MonoBehaviour
             transform.Translate(speed * Time.deltaTime);
 
         }
-        else if (Nbuck && buck == false && down == false && down2 == false)
+        else if (Nbuck && buck == false && down == false && down2 == false && !down3 && !down4)
         {
             animator.SetBool("run", false);
             runSpeed = 0f;
@@ -104,7 +108,7 @@ public class move : MonoBehaviour
 
         if (down == true)
         {
-            a = -90f * Time.deltaTime;
+            a = -180f * Time.deltaTime;
             if (b + a < -90f)
             {
                 a = -90 - b;
@@ -122,7 +126,7 @@ public class move : MonoBehaviour
         if (down2 == true)
         {
            
-                a = 90f * Time.deltaTime;
+                a = 180f * Time.deltaTime;
                 if (b + a > 90f)
                 {
                     a = 90 - b;
@@ -133,11 +137,45 @@ public class move : MonoBehaviour
                 if (b >= 90f)
                 {
                     b = 0f;
-                    Vector3 rotation = transform.localEulerAngles;
-                    rotation.y = (int)(rotation.y / 85) * 90;
-                    transform.localEulerAngles = rotation;
                     down2 = false;
+                    down3 = true;
             }
+        }
+        if (down3 == true)
+        {
+            a = 180f * Time.deltaTime;
+            if (b + a > 90f)
+            {
+                a = 90 - b;
+            }
+            b += a;
+
+            myTransform.Rotate(0, a, 0);
+            if (b >= 90f)
+            {
+                b = 0f;
+                down3 = false;
+                down4 = true;
+                big = true;
+            }
+        }
+        if (down4 == true)
+        {
+            a = -90f * Time.deltaTime;
+            if (b + a < -90f)
+            {
+                a = -90 - b;
+            }
+            b += a;
+
+            myTransform.Rotate(0, a, 0);
+            if (b <= -90f)
+            {
+                b = 0f;
+                down4 = false;
+                animator.SetBool("buck", false);
+            }
+            
         }
 
         if (leftTurn)
@@ -222,6 +260,7 @@ public class move : MonoBehaviour
         }
         if (other.gameObject.tag == "buckwall")
         {
+            kabeSE = true;
             hukitobe = transform.forward;
             buck = true;
             HP -= 2;
@@ -239,13 +278,29 @@ public class move : MonoBehaviour
             Nbuck = true;
             StartCoroutine(running());
         }
+        if (other.gameObject.CompareTag("buckwall"))
+        {
+            Vector3 correctedPosition = transform.position;
+            correctedPosition.x = Mathf.Round(correctedPosition.x); // 位置を丸めて補正
+            transform.position = correctedPosition;
+            correctedPosition.z = Mathf.Round(correctedPosition.z); // 位置を丸めて補正
+            transform.position = correctedPosition;
+        }
+        if (other.gameObject.CompareTag("NPCs") && buck == false)
+        {
+            Vector3 correctedPosition = transform.position;
+            correctedPosition.x = Mathf.Round(correctedPosition.x); // 位置を丸めて補正
+            transform.position = correctedPosition;
+            correctedPosition.z = Mathf.Round(correctedPosition.z); // 位置を丸めて補正
+            transform.position = correctedPosition;
+        }
     }
 
     IEnumerator buckNow()
     {
         animator.SetBool("buck", true);
         yield return new WaitForSeconds(1);
-        animator.SetBool("buck", false);
+
         buck = false;
         down = true;
         Vector3 rotation = transform.localEulerAngles;
@@ -270,7 +325,7 @@ public class move : MonoBehaviour
         
         animator.SetBool("run", true);
         yield return new WaitForSeconds(0.2f);
-        transform.position += transform.right * 0.25f;
+        transform.position += transform.right * 0.23f*Time.deltaTime;
         if (HP <= 0)
         {
             //SceneManager.LoadScene("GameOver");
