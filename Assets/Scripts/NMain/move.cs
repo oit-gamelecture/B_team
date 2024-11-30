@@ -38,9 +38,18 @@ public class move : MonoBehaviour
     public bool down2;
     public bool down3;
     public bool down4;
+    public bool down5;
+    public bool down6;
+    public bool down7;
+    public bool down8;
+    public bool down9;
+    public bool down10;
+    public bool down11;
+    public bool down12;
     public GameObject[] otherCanvases;
     public bool kabeSE;
     public bool big;
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -67,7 +76,7 @@ public class move : MonoBehaviour
                 cooldownTimer = 0f;
             }
         }
-        if (!buck && !Nbuck && !down && !down2 &&!down3&&!down4 && !leftTurn && !rightTurn)
+        if (!buck && !Nbuck && !down && !down2 &&!down3&&!down4 && !leftTurn && !rightTurn && !down5 && !down6 && !down7 && !down8 && !down9 && !down10 && !down11 && !down12)
         {
             animator.SetBool("run", true);
             speed.z = runSpeed;
@@ -93,7 +102,7 @@ public class move : MonoBehaviour
             transform.Translate(speed * Time.deltaTime);
 
         }
-        else if (Nbuck && buck == false && down == false && down2 == false && !down3 && !down4)
+        else if (Nbuck && buck == false && down == false && down2 == false && !down3 && !down4 && !down5 && !down6 && !down7 && !down8 && !down9 && !down10&&!down11 && !down12)
         {
             animator.SetBool("run", false);
             runSpeed = 0f;
@@ -105,18 +114,18 @@ public class move : MonoBehaviour
             transform.localEulerAngles = rotation;
             transform.Translate(speed * Time.deltaTime);
         }
-
+        
         if (down == true)
         {
             a = -180f * Time.deltaTime;
-            if (b + a < -90f)
+            if (b + a < -45f)
             {
-                a = -90 - b;
+                a = -45 - b;
             }
             b += a;
 
             myTransform.Rotate(0, a, 0);
-            if (b <= -90f)
+            if (b <= -45f)
             {
                 b = 0f;
                 down = false;
@@ -127,14 +136,14 @@ public class move : MonoBehaviour
         {
            
                 a = 180f * Time.deltaTime;
-                if (b + a > 90f)
+                if (b + a > 45f)
                 {
-                    a = 90 - b;
+                    a = 45 - b;
                 }
                 b += a;
 
                 myTransform.Rotate(0, a, 0);
-                if (b >= 90f)
+                if (b >= 45f)
                 {
                     b = 0f;
                     down2 = false;
@@ -144,38 +153,74 @@ public class move : MonoBehaviour
         if (down3 == true)
         {
             a = 180f * Time.deltaTime;
-            if (b + a > 90f)
+            if (b + a > 45f)
             {
-                a = 90 - b;
+                a = 45 - b;
             }
             b += a;
 
             myTransform.Rotate(0, a, 0);
-            if (b >= 90f)
+            if (b >= 45f)
             {
                 b = 0f;
                 down3 = false;
                 down4 = true;
-                big = true;
             }
         }
         if (down4 == true)
         {
-            a = -90f * Time.deltaTime;
-            if (b + a < -90f)
+            a = -180f * Time.deltaTime;
+            if (b + a < -45f)
             {
-                a = -90 - b;
+                a = -45 - b;
             }
             b += a;
 
             myTransform.Rotate(0, a, 0);
-            if (b <= -90f)
+            if (b <= -45f)
             {
                 b = 0f;
                 down4 = false;
-                animator.SetBool("buck", false);
+                down5 = true;
+                
             }
             
+        }
+        if (down5 == true)
+        {
+            a = -180f * Time.deltaTime;
+            if (b + a < -45f)
+            {
+                a = -45 - b;
+            }
+            b += a;
+
+            myTransform.Rotate(0, a, 0);
+            if (b <= -45f)
+            {
+                b = 0f;
+                down5 = false;
+                down6 = true;
+                big = true;
+            }
+        }
+        if (down6 == true)
+        {
+
+            a = 180f * Time.deltaTime;
+            if (b + a > 45f)
+            {
+                a = 45 - b;
+            }
+            b += a;
+
+            myTransform.Rotate(0, a, 0);
+            if (b >= 45f)
+            {
+                b = 0f;
+                down6 = false;
+                animator.SetBool("buck", false);
+            }
         }
 
         if (leftTurn)
