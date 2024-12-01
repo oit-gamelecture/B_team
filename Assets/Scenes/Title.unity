@@ -138,7 +138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 163151903667555283, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Text
-      value: 'Press Esc to End
+      value: 'Press Esc to quit
 
 '
       objectReference: {fileID: 0}

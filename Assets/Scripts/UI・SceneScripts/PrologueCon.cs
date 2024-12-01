@@ -19,10 +19,11 @@ public class PrologueCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2) && !isTransitioning)
+        if (Input.anyKey && !isTransitioning)
         {
             isTransitioning = true;  // シーン遷移が二重に実行されないようにする
-            StartCoroutine(PlaySoundAndTransition());
+            Invoke("GoToMain",2);
+            //StartCoroutine(PlaySoundAndTransition());
             //SceneManager.LoadScene("main");
         }
     }
@@ -30,7 +31,12 @@ public class PrologueCon : MonoBehaviour
     private IEnumerator PlaySoundAndTransition()
     {
         audioSource.PlayOneShot(buttonAudioClip);
-        yield return new WaitForSeconds(1.5f);  // 効果音が鳴り終わるまで待機
+        yield return new WaitForSeconds(0f);  // 効果音が鳴り終わるまで待機
+        SceneManager.LoadScene("Nmain");
+        ScoreManager.Instance.ResetScore();
+    }
+    private void GoToMain(){
+        audioSource.PlayOneShot(buttonAudioClip);
         SceneManager.LoadScene("Nmain");
         ScoreManager.Instance.ResetScore();
     }
