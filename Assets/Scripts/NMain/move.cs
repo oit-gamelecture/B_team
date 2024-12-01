@@ -315,6 +315,7 @@ public class move : MonoBehaviour
         }
         if (other.gameObject.tag == "NPCs"&&buck==false)
         {
+            kabeSE = true;
             Debug.Log(99);
             hukitobe = transform.forward;
             HP -= 1;
