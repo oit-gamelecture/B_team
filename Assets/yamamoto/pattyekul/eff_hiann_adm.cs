@@ -7,23 +7,28 @@ public class eff_adm : MonoBehaviour
     public GameObject effHidann;
 
     // エフェクトの再生時間（秒）
-    public float effectDuration = 0.6f;
+    public float effectDuration = 0.75f;
 
-    // Start is called before the first frame update
-    void Start()
+    void Start()//初期化
+{
+    if (effHidann != null)
     {
-        // エフェクトを最初は非表示に設定
-        if (effHidann != null)
-        {
-            effHidann.SetActive(false);
-        }
+        effHidann.SetActive(false);
     }
+}
 
-    // Update is called once per frame
-    void Update()
+
+    // トリガーイベントが発生したときの処理
+    
+    private void OnTriggerEnter(Collider other)
     {
-        // スペースキーが押されたときにエフェクトを再生
-        if (Input.GetKeyDown(KeyCode.Space))
+        // 特定のタグ[]に反応
+        if (other.CompareTag("buckwall"))
+        {
+            StartCoroutine(PlayEffect());
+        }
+
+        if (other.CompareTag("NPCs"))
         {
             StartCoroutine(PlayEffect());
         }
