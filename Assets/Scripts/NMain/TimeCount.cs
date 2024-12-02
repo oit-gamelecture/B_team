@@ -24,7 +24,8 @@ public class TimeCount : MonoBehaviour
         TimerCount-=Time.deltaTime;
         float percent = (float)TimerCount / Maxtime;
         Timer.fillAmount = percent;
-        if(percent<=0)
+        ScoerClass.TimeSC = percent;
+        if (percent<=0)
         {
             SceneManager.LoadScene("clearscene2");
         }

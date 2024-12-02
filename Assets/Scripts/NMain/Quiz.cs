@@ -54,7 +54,7 @@ public class Quiz : MonoBehaviour
         kennsuu.text = queue.Count.ToString();
         if (queue.Count > 5 && Time.timeScale == 1)
         {
-            Angry.angry += queue.Count*0.0002;
+            //Angry.angry += queue.Count*0.0002;
         }
         if (ScoerClass.oto == true)
         {

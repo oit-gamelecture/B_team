@@ -6,4 +6,5 @@ public static class ScoerClass
 {
     public static double hyouka;
     public static bool oto=true;
+    public static float TimeSC;
 }

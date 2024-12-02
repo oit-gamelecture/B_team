@@ -21,7 +21,7 @@ public class NPC : MonoBehaviour
                 NPCs[i].tag = "NPCs";
             
         }
-        NPCs[0].transform.position = new Vector3(172, a, 133.5f);
+        NPCs[0].transform.position = new Vector3(148, a, 133.5f);
         NPCs[1].transform.position = new Vector3(351, a, 200);
         NPCs[2].transform.position = new Vector3(173, a, 266);
         NPCs[3].transform.position = new Vector3(-8, a, 383);
