@@ -17,7 +17,7 @@ public class TitleCon : MonoBehaviour
     {
         canvasGroup = ui.GetComponent<CanvasGroup>();
         audioSource = GetComponent<AudioSource>();
-
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
