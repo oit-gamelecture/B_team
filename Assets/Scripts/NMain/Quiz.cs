@@ -148,7 +148,7 @@ public class Quiz : MonoBehaviour
                 answerText.text = "";
                 subject.text = "ãi";
                 content.text = "‰½ŒÌ’x‚µ‚Ä‚¢‚é‚ñ‚¾H";
-                string[] answer5 = { "Q–V‚µ‚Ä‚µ‚Ü‚¢‚Ü‚µ‚½", "Q‚Ä‚½", "Q‚·‚¬‚½", "‹C‚É‚µ‚½‚ç•‰‚¯‚Å‚·‚æ" };
+                string[] answer5 = { "Q–V‚µ‚Ä‚¢‚Ü‚µ‚½", "Q‚Ä‚½", "Q‚·‚¬‚½", "‹C‚É‚µ‚½‚ç•‰‚¯‚Å‚·‚æ" };
                 mail0(answer5, 0);
                 break;
             case 5:
@@ -176,7 +176,7 @@ public class Quiz : MonoBehaviour
                 answerText.text = "";
                 subject.text = "ãi";
                 content.text = "¡“ú‚Ì‰ï‹c‚Í‘å–‚È‚ñ‚¾B‹}‚¢‚Å‚­‚êI";
-                string[] answer9 = { "â‘Î“’…‚µ‚Ü‚·", "‚»‚ê‚É‚ÍŠÔ‚É‡‚¤", "’x‚ê‚é‚©‚È[", "–³—‚Å‚·" };
+                string[] answer9 = { "â‘Î“’…‚µ‚Ü‚·", "‚»‚ê‚É‚ÍŠÔ‚É‡‚¤", "’x‚­‚ê‚é‚©‚È[", "–³—‚Å‚·" };
                 mail0(answer9, 0);
                 break;
             case 9:
