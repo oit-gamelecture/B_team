@@ -17,6 +17,7 @@ public class ESCG : MonoBehaviour
         {
             canvas.SetActive(false);
         }
+        ScoerClass.oto = true;
     }
 
     // Update is called once per frame
