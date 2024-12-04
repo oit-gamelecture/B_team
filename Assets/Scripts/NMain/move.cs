@@ -88,10 +88,7 @@ public class move : MonoBehaviour
         }
         else if (buck)
         {
-            foreach (var canvas in otherCanvases)
-            {
-                canvas.SetActive(false);
-            }
+ 
             animator.SetBool("run", false);
             runSpeed = 0f;
             speed.z = buckSpeed;
@@ -305,6 +302,10 @@ public class move : MonoBehaviour
         }
         if (other.gameObject.tag == "buckwall")
         {
+            foreach (var canvas in otherCanvases)
+            {
+                canvas.SetActive(false);
+            }
             kabeSE = true;
             hukitobe = transform.forward;
             buck = true;
@@ -315,8 +316,11 @@ public class move : MonoBehaviour
         }
         if (other.gameObject.tag == "NPCs"&&buck==false)
         {
+            foreach (var canvas in otherCanvases)
+            {
+                canvas.SetActive(false);
+            }
             kabeSE = true;
-            Debug.Log(99);
             hukitobe = transform.forward;
             HP -= 1;
             runSpeed = 0;
