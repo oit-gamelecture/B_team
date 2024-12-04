@@ -23,6 +23,7 @@ public class GameClearCon : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Input.GetKey(KeyCode.Space) && !isTransitioning)
         {
             isTransitioning = true;  // シーン遷移が二重に実行されないようにする
@@ -33,6 +34,21 @@ public class GameClearCon : MonoBehaviour
             // SceneManager.LoadScene("main");
             // ScoreManager.Instance.ResetScore();
             isTransitioning = true;  // シーン遷移が二重に実行されないようにする
+            StartCoroutine(PlaySoundAndTransitionEnd());
+        }
+        */
+    }
+
+        public void OnClickTitle(){
+        if(!isTransitioning){
+            isTransitioning = true;
+            StartCoroutine(PlaySoundAndTransition());
+        }
+    }
+
+    public void OnClickQuit(){
+        if(!isTransitioning){
+            isTransitioning = true;
             StartCoroutine(PlaySoundAndTransitionEnd());
         }
     }

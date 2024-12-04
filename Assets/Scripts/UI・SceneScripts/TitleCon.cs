@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class TitleCon : MonoBehaviour
 {
-    public GameObject ui;
-    CanvasGroup canvasGroup;
+    //public GameObject ui;
+    //CanvasGroup canvasGroup;
 
     public AudioSource audioSource;
     public AudioClip buttonAudioClip;
@@ -15,7 +15,7 @@ public class TitleCon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvasGroup = ui.GetComponent<CanvasGroup>();
+        //canvasGroup = ui.GetComponent<CanvasGroup>();
         audioSource = GetComponent<AudioSource>();
         Time.timeScale = 1;
     }
@@ -23,6 +23,7 @@ public class TitleCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKey(KeyCode.Space) && !isTransitioning)
         {
             //SceneManager.LoadScene("Prologue");
@@ -40,6 +41,38 @@ public class TitleCon : MonoBehaviour
         {
             isTransitioning = true; //シーン遷移が二重に実行されないようにする
             StartCoroutine(PlaySoundAndTransition("Rule"));
+        }
+        */
+    }
+
+    /*
+    public void OnClick(){
+        if(!isTransitioning){
+            isTransitioning = true;
+
+        }
+    }
+    */
+    public void OnClickStart(){
+        if(!isTransitioning){
+            isTransitioning = true;
+            StartCoroutine(PlaySoundAndTransition());
+        }
+    }
+
+    public void OnClickRule(){
+        if(!isTransitioning){
+            isTransitioning = true;
+            StartCoroutine(PlaySoundAndTransition("Rule"));
+
+        }
+        StartCoroutine(PlaySoundAndTransition("Rule"));
+    }
+
+    public void OnClickQuit(){
+        if(!isTransitioning){
+            isTransitioning = true;
+            StartCoroutine(PlaySoundAndTransitionEnd());
         }
     }
 

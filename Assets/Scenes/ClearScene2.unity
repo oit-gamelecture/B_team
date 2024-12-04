@@ -424,7 +424,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1515,6 +1515,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1810233399}
     m_Modifications:
+    - target: {fileID: 804822430020950240, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_Text
+      value: 'Quit
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 918205874546320072, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 918205874546320072, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1607,6 +1617,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3697912118945849192, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1584499324}
+    - target: {fileID: 3697912118945849192, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickTitle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697912118945849192, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameClearCon, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4057909457949539741, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
       propertyPath: m_Name
       value: ResultText
@@ -1651,6 +1673,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6619656024313339923, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_Text
+      value: 'Title
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649825194754988603, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6649825194754988603, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1679,13 +1711,25 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7180827781485553563, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1584499324}
+    - target: {fileID: 7180827781485553563, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickQuit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180827781485553563, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameClearCon, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7981888890056022367, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
       propertyPath: m_Name
       value: ClearSet
       objectReference: {fileID: 0}
     - target: {fileID: 7981888890056022367, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8342645521673632326, guid: 0f3199fbe95b3f14aa988c8da1d93419, type: 3}
       propertyPath: speed
@@ -2173,6 +2217,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7374520044713964122, guid: a4bf8098f1f84854285c89e30f837888, type: 3}
   m_PrefabInstance: {fileID: 1323522586}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1584499324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7486280333556419656, guid: a4bf8098f1f84854285c89e30f837888, type: 3}
+  m_PrefabInstance: {fileID: 1323522586}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584499322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e547ef473fa15442b92c430ac199acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1605206323
 GameObject:
   m_ObjectHideFlags: 0

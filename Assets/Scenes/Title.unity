@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -138,9 +138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 163151903667555283, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Text
-      value: 'Press Esc to quit
-
-'
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Pivot.x
@@ -168,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_SizeDelta.y
@@ -204,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -232,7 +230,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1562459398}
+    - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickQuit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -578,7 +588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bf84c706e307977478397c65b16835f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 067b094d6a4b6d44eb6711f2ba7ace04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -606,7 +616,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 163151903667555283, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Text
-      value: Press Shift to Rule
+      value: Rule
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Pivot.x
@@ -634,7 +644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_SizeDelta.y
@@ -670,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -690,7 +700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1898196078846093931, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Name
-      value: RuleButton (1)
+      value: RuleButton
       objectReference: {fileID: 0}
     - target: {fileID: 4045743037471004047, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Name
@@ -698,7 +708,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1562459398}
+    - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickRule
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -868,7 +886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33745e789d43d84d9b3b31a18580b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 615256444}
   audioSource: {fileID: 0}
   buttonAudioClip: {fileID: 8300000, guid: 7e16550e2f929ea4eb9b85a00aa1ce51, type: 3}
 --- !u!82 &1562459399
@@ -1305,7 +1322,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 163151903667555283, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Text
-      value: Press Space to Start
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Pivot.x
@@ -1333,7 +1350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1369,7 +1386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 420790891307889147, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1393,7 +1410,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1562459398}
+    - target: {fileID: 7696511732253013160, guid: 18f615ee7fa192d46b34f6e889543c40, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickStart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
