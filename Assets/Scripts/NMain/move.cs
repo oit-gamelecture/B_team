@@ -76,7 +76,7 @@ public class move : MonoBehaviour
                 cooldownTimer = 0f;
             }
         }
-        if (!buck && !Nbuck && !down && !down2 &&!down3&&!down4 && !leftTurn && !rightTurn && !down5 && !down6 && !down7 && !down8 && !down9 && !down10 && !down11 && !down12)
+        if (!buck && !Nbuck && !down && !down2 &&!down3&&!down4 && !leftTurn && !rightTurn && !down5 && !down6 )
         {
             animator.SetBool("run", true);
             speed.z = runSpeed;

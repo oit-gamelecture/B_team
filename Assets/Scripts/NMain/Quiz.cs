@@ -113,7 +113,7 @@ public class Quiz : MonoBehaviour
 
     public void Mailmessage()
     {
-        int messageID = Random.Range(0, 6);
+        int messageID = Random.Range(0, 10);
         switch (messageID)
         {
             case 0:
@@ -157,6 +157,34 @@ public class Quiz : MonoBehaviour
                 content.text = "今何時だと思っている？";
                 string[] answer6 = { "すぐに向かいます", "やべっ", "あー...", "ミスったー" };
                 mail0(answer6, 0);
+                break;
+            case 6:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "今出勤中なのか？";
+                string[] answer7 = { "会社に向かっています", "出勤中ー", "出金中です", "会社にGO!" };
+                mail0(answer7, 0);
+                break;
+            case 7:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "会議までには来れるんだな？";
+                string[] answer8 = { "必ず間に合わせます。", "ダメそう", "待ってね", "オンラインはダメ？" };
+                mail0(answer8, 0);
+                break;
+            case 8:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "今日の会議は大事なんだ。急いでくれ！";
+                string[] answer9 = { "絶対到着します", "それには間に合う", "遅くれるかなー", "無理です" };
+                mail0(answer9, 0);
+                break;
+            case 9:
+                answerText.text = "";
+                subject.text = "上司";
+                content.text = "事故に巻き込まれたりしてないよな？";
+                string[] answer10 = { "事故ではありません。", "事故ってないよ", "大丈夫だよー", "壁にぶつかっています" };
+                mail0(answer10, 0);
                 break;
 
         }
