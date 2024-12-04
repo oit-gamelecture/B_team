@@ -49,7 +49,7 @@ public class move : MonoBehaviour
     public GameObject[] otherCanvases;
     public bool kabeSE;
     public bool big;
-    
+    private bool isProcessingCollision = false;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -281,6 +281,12 @@ public class move : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
+        if (isProcessingCollision)
+        {
+            return; // 他の衝突処理中は新しい衝突を無視
+        }
+        isProcessingCollision = true;
+
         if (isCooldown)
         {
             return;
@@ -293,14 +299,14 @@ public class move : MonoBehaviour
 
             }
         }
-        if (other.gameObject.tag == "rightwall")
+        else if (other.gameObject.tag == "rightwall")
         {
             if (leftTurn == false)
             {
                 rightTurn = true;
             }
         }
-        if (other.gameObject.tag == "buckwall")
+       else if (other.gameObject.tag == "buckwall")
         {
             foreach (var canvas in otherCanvases)
             {
@@ -313,8 +319,13 @@ public class move : MonoBehaviour
             runSpeed = 0;
             buckSpeed = -20f;
             StartCoroutine(buckNow());
+            Vector3 correctedPosition = transform.position;
+            correctedPosition.x = Mathf.Round(correctedPosition.x); // 位置を丸めて補正
+            transform.position = correctedPosition;
+            correctedPosition.z = Mathf.Round(correctedPosition.z); // 位置を丸めて補正
+            transform.position = correctedPosition;
         }
-        if (other.gameObject.tag == "NPCs"&&buck==false)
+       else if (other.gameObject.tag == "NPCs"&&buck==false&&!down&&!down2&&!down3&&!down4&&!down5&&!down6)
         {
             foreach (var canvas in otherCanvases)
             {
@@ -327,23 +338,13 @@ public class move : MonoBehaviour
             NbuckSpeed = -8f;
             Nbuck = true;
             StartCoroutine(running());
-        }
-        if (other.gameObject.CompareTag("buckwall"))
-        {
             Vector3 correctedPosition = transform.position;
             correctedPosition.x = Mathf.Round(correctedPosition.x); // 位置を丸めて補正
             transform.position = correctedPosition;
             correctedPosition.z = Mathf.Round(correctedPosition.z); // 位置を丸めて補正
             transform.position = correctedPosition;
         }
-        if (other.gameObject.CompareTag("NPCs") && buck == false)
-        {
-            Vector3 correctedPosition = transform.position;
-            correctedPosition.x = Mathf.Round(correctedPosition.x); // 位置を丸めて補正
-            transform.position = correctedPosition;
-            correctedPosition.z = Mathf.Round(correctedPosition.z); // 位置を丸めて補正
-            transform.position = correctedPosition;
-        }
+        isProcessingCollision = false;
     }
 
     IEnumerator buckNow()
@@ -362,7 +363,6 @@ public class move : MonoBehaviour
             //SceneManager.LoadScene("GameOver");
         }
         runSpeed = 10f;
-
         rotation.y = (int)(rotation.y / 80) * 90;
         transform.localEulerAngles = rotation;
     }
