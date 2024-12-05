@@ -99,7 +99,7 @@ public class move : MonoBehaviour
             transform.Translate(speed * Time.deltaTime);
 
         }
-        else if (Nbuck && buck == false && down == false && down2 == false && !down3 && !down4 && !down5 && !down6 && !down7 && !down8 && !down9 && !down10&&!down11 && !down12)
+        else if (Nbuck && buck == false && down == false && down2 == false && !down3 && !down4 && !down5 && !down6)
         {
             animator.SetBool("run", false);
             runSpeed = 0f;
@@ -281,32 +281,28 @@ public class move : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (isProcessingCollision)
+        if (isProcessingCollision || isCooldown)
         {
-            return; // 他の衝突処理中は新しい衝突を無視
+            return; // 処理中やクールダウン中は新しい衝突を無視
         }
-        isProcessingCollision = true;
 
-        if (isCooldown)
-        {
-            return;
-        }
+        isProcessingCollision = true; // 衝突処理中フラグをオン
+
         if (other.gameObject.tag == "leftwall")
         {
-            if (rightTurn == false)
+            if (!rightTurn)
             {
                 leftTurn = true;
-
             }
         }
         else if (other.gameObject.tag == "rightwall")
         {
-            if (leftTurn == false)
+            if (!leftTurn)
             {
                 rightTurn = true;
             }
         }
-       else if (other.gameObject.tag == "buckwall")
+        else if (other.gameObject.tag == "buckwall")
         {
             foreach (var canvas in otherCanvases)
             {
@@ -320,18 +316,18 @@ public class move : MonoBehaviour
             buckSpeed = -20f;
             StartCoroutine(buckNow());
             Vector3 correctedPosition = transform.position;
-            correctedPosition.x = Mathf.Round(correctedPosition.x); // 位置を丸めて補正
-            transform.position = correctedPosition;
-            correctedPosition.z = Mathf.Round(correctedPosition.z); // 位置を丸めて補正
+            correctedPosition.x = Mathf.Round(correctedPosition.x);
+            correctedPosition.z = Mathf.Round(correctedPosition.z);
             transform.position = correctedPosition;
         }
-       else if (other.gameObject.tag == "NPCs"&&buck==false&&!down&&!down2&&!down3&&!down4&&!down5&&!down6)
+        else if (other.gameObject.tag == "NPCs" && !buck && !down && !down2 && !down3 && !down4 && !down5 && !down6)
         {
             foreach (var canvas in otherCanvases)
             {
                 canvas.SetActive(false);
             }
             kabeSE = true;
+            Debug.Log("bagu");
             hukitobe = transform.forward;
             HP -= 1;
             runSpeed = 0;
@@ -339,13 +335,14 @@ public class move : MonoBehaviour
             Nbuck = true;
             StartCoroutine(running());
             Vector3 correctedPosition = transform.position;
-            correctedPosition.x = Mathf.Round(correctedPosition.x); // 位置を丸めて補正
-            transform.position = correctedPosition;
-            correctedPosition.z = Mathf.Round(correctedPosition.z); // 位置を丸めて補正
+            correctedPosition.x = Mathf.Round(correctedPosition.x);
+            correctedPosition.z = Mathf.Round(correctedPosition.z);
             transform.position = correctedPosition;
         }
-        isProcessingCollision = false;
+
+        isProcessingCollision = false; // 処理終了時にリセット
     }
+
 
     IEnumerator buckNow()
     {
